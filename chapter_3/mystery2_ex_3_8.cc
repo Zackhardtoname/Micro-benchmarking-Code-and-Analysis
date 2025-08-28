@@ -311,6 +311,7 @@ void  FindCacheAssociativity(uint8* ptr, int kMaxArraySize, int linesize, int to
       // While we could very the cache line bits among our access addresses, there's no need, so let's just vary the higher bits: 64 - 14 = 50 bits. 
       // We simply add 1 to the 15th bit each time.
   
+      // Change to 14 for L1
       auto bytestride = 1 << 12;
   
       // Repeat four times. First will take cache misses, others will not if small enough
@@ -330,6 +331,7 @@ void  FindCacheAssociativity(uint8* ptr, int kMaxArraySize, int linesize, int to
         sum += pairptr[(i + 3) * pairstride].data;
       }
 
+      // Remove + 12 for L1
       int64 startcy = GetCycles();
       for (; i < num_lines_to_read + 12; i += 4) {
         sum += pairptr[i * pairstride].data;
