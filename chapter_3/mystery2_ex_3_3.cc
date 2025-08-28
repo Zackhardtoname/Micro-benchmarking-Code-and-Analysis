@@ -86,7 +86,7 @@ static const int kPageSize = 4096;		// Must be a power of two
 static const int kPageSizeMask = kPageSize - 1;
 
 // Make an array bigger than any expected cache size
-static const int kMaxArraySize = 2000 * 1024 * 1024;
+static const int kMaxArraySize = 400 * 1024 * 1024;
 
 // Minimum useful cache line size is twice sizeof(void*), 16 bytes
 // Maximum useful cache line size is page size, assumed here to be 4KB
@@ -164,6 +164,7 @@ Pair* MakeLongList(uint8* ptr, int bytesize, int bytestride, bool makelinear) {
   int element_count = bytesize / bytestride;
   // Make sure next element is in different DRAM row than current element
   int extrabit = makelinear ? 0 : (1 << 14);
+  extrabit = 0;
   // Fill in N-1 elements, each pointing to the next one
   for (int i = 1; i < element_count; ++i) {
     // If not linear, there are mixed-up groups of 256 elements chained together
@@ -280,7 +281,7 @@ void  FindCacheSizes(uint8* ptr, int kMaxArraySize, int linesize) {
   const Pair* pairptr = MakeLongList(ptr, kMaxArraySize, linesize, makelinear);
 
   // Load 16 to 512K cache lines and time it. 32MB cache / 64B linesize = 512K lines.
-  for (int lgcount = 4; lgcount <= 24; ++lgcount) {
+  for (int lgcount = 4; lgcount <= 19; ++lgcount) {
     int count = 1 << lgcount;
  
     // Try to force the data we will access out of the caches

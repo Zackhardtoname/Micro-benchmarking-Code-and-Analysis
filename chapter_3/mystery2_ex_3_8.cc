@@ -27,9 +27,9 @@
 #include <string.h>
 #include <time.h>	// for time()
 
-#include "basetypes.h"
-#include "polynomial.h"
-#include "timecounters.h"
+#include "../book_files/basetypes.h"
+#include "../book_files/polynomial.h"
+#include "../book_files/timecounters.h"
 
 // We use a couple of fast pseudo-random generators that are based on standard 
 // cyclic reduncy check arithmetic. Look in Wikipedia for more information on 
@@ -297,8 +297,56 @@ void  FindCacheSizes(uint8* ptr, int kMaxArraySize, int linesize) {
 }
 
 void  FindCacheAssociativity(uint8* ptr, int kMaxArraySize, int linesize, int totalsize) {
-  // You get to fill this in.
-  fprintf(stdout, "FindCacheAssociativity(%d, %d) not implemented yet.\n", linesize, totalsize);
+  bool makelinear = true;
+  const Pair* pairptr = MakeLongList(ptr, kMaxArraySize, linesize, makelinear);
+  
+  // Try 4 to 70 linearly, and then 4 to 2048 exponentially by 2x.
+  for (int num_lines_to_read = 4; num_lines_to_read <= 20; num_lines_to_read += 1) {
+    // Try to force the data we will access out of the caches
+    TrashTheCaches(ptr, kMaxArraySize);
+
+    for (int repeat_idx = 0; repeat_idx < 3; ++repeat_idx) {
+      // Assuming that the lower order bits correpond to a page offset and the bits are used to find the set and the cache line offset in the page.
+      // We know we have 4KB pages and 64 bytes cache lines, so 14 - 6 = 8 bits for set selection.
+      // While we could very the cache line bits among our access addresses, there's no need, so let's just vary the higher bits: 64 - 14 = 50 bits. 
+      // We simply add 1 to the 15th bit each time.
+  
+      auto bytestride = 1 << 12;
+  
+      // Repeat four times. First will take cache misses, others will not if small enough
+      int pairstride = bytestride / sizeof(Pair);
+      int64 sum = 0;
+      // Load 256 items spaced by stride
+      // May have multiple loads outstanding; may have prefetching
+      // Unroll four times to attempt to reduce loop overhead in timing
+      
+      // Fill L1
+      // Remove this loop is you just need L1 result.
+      auto i = 0;
+      for (; i < 12; i += 4) {
+        sum += pairptr[i * pairstride].data;
+        sum += pairptr[(i + 1) * pairstride].data;
+        sum += pairptr[(i + 2) * pairstride].data;
+        sum += pairptr[(i + 3) * pairstride].data;
+      }
+
+      int64 startcy = GetCycles();
+      for (; i < num_lines_to_read + 12; i += 4) {
+        sum += pairptr[i * pairstride].data;
+        sum += pairptr[(i + 1) * pairstride].data;
+        sum += pairptr[(i + 2) * pairstride].data;
+        sum += pairptr[(i + 3) * pairstride].data;
+      }
+      int64 stopcy = GetCycles();
+      int64 elapsed = stopcy - startcy;	// cycles
+    
+      // Make sum live so compiler doesn't delete the loop
+      if (gNeverZero == 0) {fprintf(stdout, "sum = %lld\n", sum);}
+      
+      auto cycles_per_load = elapsed / num_lines_to_read;			// cycles per load
+      fprintf(stdout, "cache associtivity test. latency for reading %d cache lines is %lld\n", num_lines_to_read, cycles_per_load);
+    }
+  }
 }
 
  
