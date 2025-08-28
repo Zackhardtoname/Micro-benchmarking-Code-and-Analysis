@@ -1,3 +1,4 @@
+# TODO: get answer here https://stackoverflow.com/q/79743003/7053488
 # I wrote this based on a skylake CPU first. Then I replicated the results really well on amd ryzen 7 9800x3d and colaberated the results with https://agner.org/optimize/instruction_tables.pdf
 
 # 2.1
