@@ -16,4 +16,4 @@ for i in range(1, len(points) - 1):  # - 1 to ignore the end marker
         max_delta = delta
         max_index = i-1
 
-print(f"Max time delta: {max_delta:.6f} usec between points {max_index} and {max_index+1}")
+print(f"Max time delta: {max_delta:.6f} sec between points {max_index} and {max_index+1}")
