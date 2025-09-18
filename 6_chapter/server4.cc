@@ -429,7 +429,7 @@ int main (int argc, const char** argv) {
   while (!stopping) {
     sleep(2);	// Poll every 2 seconds
     total_seconds += 2;
-    if (total_seconds >= kMaxRunTimeSeconds) {
+    if (false && total_seconds >= kMaxRunTimeSeconds) {
       fprintf(stderr, 
               "server4: timed out after %d minutes (safety move) ...\n", 
               kMaxRunTimeSeconds / 60);
