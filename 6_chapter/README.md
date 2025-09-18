@@ -1,11 +1,15 @@
 The implementation code and the book differ quite a bit. I think the author didn't clean up his code and the tech reviewers did a bad job.
 
+The sketches is in the corresponding PDF.
+
+Question: I can't figure out what this 350 usec is talking about on page 108.
+
 ## 6.1 How long, in milliseconds, did you estimate for the ping requests and their response
 message transmissions? How long do they actually take? Briefly comment on the
 difference.
 
 ### My estimates:
-Send time = resposne time = 1 ms
+Send time = Response time = 1 ms
 Process time = 100 us.
 
 ### Actual
@@ -75,12 +79,52 @@ Display optimization: The base time (24 seconds) is shown separately at the bott
 This is a common visualization technique for time-series data - removing the common offset and showing just the relevant variation. The axis label "Time (msec)" indicates these are millisecond offsets from the base time shown at the bottom.
 """
 
-### 6.2 How long, in milliseconds, did you estimate for the write requests and their
+My external internet speed is about 300 Mbps. Internal test using the "sink" command of the programs gave me 114 TxMB/s = 912 Mb per second. so estimating using 1 Gbps is correct. I don't actually know why it's only 1 Gbps because my ethernet cable is 10 Gbps. Not sure if the free Verizon router is capped at that since their highest plan claims 940 Mbps. My NIC for the server is Killer E2600 Gigabit Ethernet NIC (Standard), the definitive limiter, and for the client is up to 5.8 Gbps. So neither can do 10 Gbps anyway.
+
+## 6.2 How long, in milliseconds, did you estimate for the write requests and their
 response message transmissions? How long do they actually take? Briefly comment on the
 difference.
 
+### My estimate
+Send time = 10 ms
+Process time = 1 ms
+Reponse time = 1 to 10 us
 
+### Actual
+10.844ms  9.936ms  10.078ms  9.696ms  9.680ms  9.562ms  9.558ms  9.535ms  9.552ms  9.539ms  
 
-6.3 How long, in milliseconds, did you estimate for the read requests and their response
+Histogram of floor log 2 buckets of usec response times
+1 2+ 4+ us            1+ 2+ 4+ msec         1+ 2+ 4+ sec           1K+ 2k+ secs
+|                     |                     |                      |
+0 0 0 0 0 0 0 0 0 0   0 0 0 10 0 0 0 0 0 0   0 0 0 0 0 0 0 0 0 0   0 0 
+10 RPCs,  98.0 msec, 10.487 TxMB, 0.001 RxMB total
+102.1 RPC/s (9.798 msec/RPC), 107.0 TxMB/s,   0.0 RxMB/s
+
+client4_20250918_174816_fedora_45458.log written
+
+### Discussion
+The first two estimates are correct. Not sure if my response time is correct or not, since the clock drift is pretty bad. The actual T4 - T3 is already 2 ms.
+
+## 6.3 How long, in milliseconds, did you estimate for the read requests and their response
 message transmissions? How long do they actually take? Briefly comment on the
 difference.
+
+### My estimate
+Send time: 1 to 10 us.
+Process time: 0.7 to 0.9 ms
+Send response back: 10 ms
+
+### Actual
+10.153ms  9.904ms  9.609ms  9.397ms  9.385ms  9.386ms  9.381ms  9.388ms  9.567ms  9.363ms  
+
+Histogram of floor log 2 buckets of usec response times
+1 2+ 4+ us            1+ 2+ 4+ msec         1+ 2+ 4+ sec           1K+ 2k+ secs
+|                     |                     |                      |
+0 0 0 0 0 0 0 0 0 0   0 0 0 10 0 0 0 0 0 0   0 0 0 0 0 0 0 0 0 0   0 0 
+10 RPCs,  95.5 msec, 10.487 TxMB, 0.001 RxMB total
+104.7 RPC/s (9.553 msec/RPC), 109.8 TxMB/s,   0.0 RxMB/s
+
+### Discussion
+It seems that T1, T2, and T3 are the same. It's probably due to time alignment again :(.
+T4 - T3 is matching our expectations.
+The graph is very hard to read.
