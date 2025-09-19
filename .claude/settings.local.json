@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./client4:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

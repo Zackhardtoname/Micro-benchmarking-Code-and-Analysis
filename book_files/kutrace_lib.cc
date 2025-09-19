@@ -150,7 +150,13 @@ u64 noinline DoControl(u64 command, u64 arg)
 
 u64 inline DoControl(u64 command, u64 arg)
 {
+#ifdef __APPLE__
+  // On macOS, kutrace kernel module is not available, so return dummy value
+  fprintf(stderr, "DEBUG: kutrace system call %llu would be called (not available on macOS)\n", command);
+  return 0;
+#else
   return syscall(__NR_kutrace_control, command, arg);
+#endif
 }
 
 #endif

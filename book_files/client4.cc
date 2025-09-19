@@ -51,7 +51,9 @@ void WaitMsec(int32 msec) {
   struct timespec tv;
   tv.tv_sec = msec / 1000;
   tv.tv_nsec = (msec % 1000) * 1000000;
+  fprintf(stderr, "DEBUG: About to call nanosleep()\n");
   nanosleep(&tv, NULL);
+  fprintf(stderr, "DEBUG: nanosleep() completed\n");
 }
 
  
@@ -66,16 +68,22 @@ int ConnectToServer(const char* server_name, const char* server_port,
   memset(&hints, 0, sizeof hints);
   hints.ai_family = AF_INET;		// IPv4
   hints.ai_socktype = SOCK_STREAM;	// TCP
+  fprintf(stderr, "DEBUG: About to call getaddrinfo()\n");
   iret = getaddrinfo(server_name, server_port, &hints, &server);
   if (iret != 0) {Error("getaddrinfo",  gai_strerror(iret));}
+  fprintf(stderr, "DEBUG: getaddrinfo() completed\n");
 
   // Make a socket:
+  fprintf(stderr, "DEBUG: About to call socket()\n");
   sockfd = socket(server->ai_family, server->ai_socktype, server->ai_protocol);
   if (sockfd < 0) {Error("socket");}
+  fprintf(stderr, "DEBUG: socket() completed\n");
 
   // Connect
+  fprintf(stderr, "DEBUG: About to call connect()\n");
   iret = connect(sockfd, server->ai_addr, server->ai_addrlen);
   if (iret < 0) {Error("connect");}
+  fprintf(stderr, "DEBUG: connect() completed\n");
   const sockaddr_in* sin = reinterpret_cast<const sockaddr_in*>(server->ai_addr);
   fprintf(stderr, "at client, server IP = %08x:%04x\n", ntohl(sin->sin_addr.s_addr), ntohs(sin->sin_port));
   *server_ipnum = ntohl(sin->sin_addr.s_addr);
@@ -86,11 +94,16 @@ int ConnectToServer(const char* server_name, const char* server_port,
 
 // Send one RPC over the wire: marker, header, data
 bool SendRequest(int sockfd, RPC* req) {
-  return SendOneRPC(sockfd, req, NULL);
+  fprintf(stderr, "DEBUG: About to call SendOneRPC()\n");
+  bool result = SendOneRPC(sockfd, req, NULL);
+  fprintf(stderr, "DEBUG: SendOneRPC() completed\n");
+  return result;
 }
 
 bool ReceiveResponse(int sockfd, RPC* response) {
+  fprintf(stderr, "DEBUG: About to call ReadOneRPC()\n");
   ReadOneRPC(sockfd, response, NULL);
+  fprintf(stderr, "DEBUG: ReadOneRPC() completed\n");
   return true;
 }
 
@@ -190,10 +203,14 @@ bool SendCommand(int sockfd, uint32* randseed, const char* command,
 
   // rls 2020.08.23 record the method name for each outgoing RPC
   // We also pack in the request length
+  fprintf(stderr, "DEBUG: About to call kutrace::addname()\n");
   kutrace::addname(KUTRACE_METHODNAME, tempid, request.header->method);
+  fprintf(stderr, "DEBUG: kutrace::addname() completed\n");
 
   // Start tracing the outgoing RPC request
+  fprintf(stderr, "DEBUG: About to call kutrace::addevent() for RPCIDREQ\n");
   kutrace::addevent(KUTRACE_RPCIDREQ, (lglen8 << 16) | tempid);
+  fprintf(stderr, "DEBUG: kutrace::addevent() for RPCIDREQ completed\n");
 
   if (verbose) {fprintf(stdout, "client4: SendRequest:     "); PrintRPC(stdout, &request);}
   LogRPC(logfile, &request);
@@ -202,7 +219,9 @@ bool SendCommand(int sockfd, uint32* randseed, const char* command,
   ok &= SendRequest(sockfd, &request);
 
   // Stop tracing the outgoing RPC request
+  fprintf(stderr, "DEBUG: About to call kutrace::addevent() for RPCIDREQ stop\n");
   kutrace::addevent(KUTRACE_RPCIDREQ, 0);
+  fprintf(stderr, "DEBUG: kutrace::addevent() for RPCIDREQ stop completed\n");
 
   // Block here until the response comes back
   RPC response;
@@ -218,7 +237,9 @@ bool SendCommand(int sockfd, uint32* randseed, const char* command,
   lglen8 = response.header->lglen2;	// Respense length
 
   // Start tracing the incoming RPC response
-  kutrace::addevent(KUTRACE_RPCIDRESP, (lglen8 << 16) | tempid);   
+  fprintf(stderr, "DEBUG: About to call kutrace::addevent() for RPCIDRESP\n");
+  kutrace::addevent(KUTRACE_RPCIDRESP, (lglen8 << 16) | tempid);
+  fprintf(stderr, "DEBUG: kutrace::addevent() for RPCIDRESP completed\n");   
 
   if (verbose) {fprintf(stdout, "client4: ReceiveResponse: "); PrintRPC(stdout, &response);}
   LogRPC(logfile, &response);
@@ -242,7 +263,9 @@ bool SendCommand(int sockfd, uint32* randseed, const char* command,
   FreeRPC(&response);
 
   // Stop tracing the incoming RPC response
+  fprintf(stderr, "DEBUG: About to call kutrace::addevent() for RPCIDRESP stop\n");
   kutrace::addevent(KUTRACE_RPCIDRESP, 0);
+  fprintf(stderr, "DEBUG: kutrace::addevent() for RPCIDRESP stop completed\n");
 
   return ok;
 }
@@ -384,8 +407,12 @@ int main (int argc, const char** argv) {
   logfile = OpenLogFileOrDie(logfilename);
 
   // Initialize pseudo-random generator based on process id and time
+  fprintf(stderr, "DEBUG: About to call getpid()\n");
   uint32 pid = getpid();                      
+  fprintf(stderr, "DEBUG: getpid() completed\n");
+  fprintf(stderr, "DEBUG: About to call time()\n");
   randseed = time(NULL) ^ (pid << 16) ;	// Different seed each run
+  fprintf(stderr, "DEBUG: time() completed\n");
   if (randseed == 0) {randseed = POLYINIT32;}	// Safety move to avoid accidental seed=0
   if (seed1) {randseed = 1;}
 
@@ -399,7 +426,11 @@ int main (int argc, const char** argv) {
 
   // The double-nested command loop
   for (int i = 0; i < outer_repeats; ++i) {
-    if (sink_command) {kutrace::mark_d(value_padlen + i);}
+    if (sink_command) {
+      fprintf(stderr, "DEBUG: About to call kutrace::mark_d()\n");
+      kutrace::mark_d(value_padlen + i);
+      fprintf(stderr, "DEBUG: kutrace::mark_d() completed\n");
+    }
     for (int j = 0; j < inner_repeats; ++j) {
       SendCommand(sockfd, &randseed, command, key_base_str, key_padlen, value_base_str, value_padlen);
       if (key_incr) {IncrString(&key_base_str);}
@@ -408,7 +439,9 @@ int main (int argc, const char** argv) {
     WaitMsec(wait_msec);
   }
 
+  fprintf(stderr, "DEBUG: About to call close()\n");
   close(sockfd);
+  fprintf(stderr, "DEBUG: close() completed\n");
 
 
   // Print some summary statistics
@@ -431,7 +464,9 @@ int main (int argc, const char** argv) {
           (rxbytes * 1.0) / total_usec);
   fprintf(stderr, "\n");
 
+  fprintf(stderr, "DEBUG: About to call fclose()\n");
   fclose(logfile);
+  fprintf(stderr, "DEBUG: fclose() completed\n");
   fprintf(stderr, "%s written\n", logfilename);
 
 
