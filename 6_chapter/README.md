@@ -15,7 +15,7 @@ My RAM is https://www.gskill.com/product/165/396/1691400033/F5-6000J3040G32GX2-F
 
 My Lan is 1x Realtek® 8126 5Gbps LAN controller.
 
-So the weighed process speed is about 5 * 2/6.5 + (102770+40000) / 2 / 1024 * 4/6.5 = 44 Gbps.
+So the weighed process speed is about 5/8 * 2/6.5 + (102770+40000) / 2 / 1024 * 4/6.5 = 48 GiB/s.
 
 Question: We are also ignoring CPU caches completely even though the packets completely fit in our caches. I think we have to go through main memory for kernel buffer to user buffer, but what about user buffer to strings and afterward? We should be able to use CPU cache for sure right?
 
@@ -27,7 +27,7 @@ difference.
 
 ### My estimates:
 Send time = Response time = 1 ms
-Process time = 10 us.
+Process time = 14 us.
 
 ### Actual
 3.237ms  1.992ms  1.921ms  1.973ms  1.939ms  1.939ms  1.922ms  1.923ms  1.917ms  1.898ms  
@@ -106,7 +106,7 @@ difference.
 
 ### My estimate
 Send time = 10 ms
-Process time = 1 ms
+Process time = 160 us
 Reponse time = 1 to 10 us
 
 ### Actual
@@ -124,7 +124,7 @@ client4_20250918_174816_fedora_45458.log written
 
 ### Discussion
 Send time is good.
-Process time ranges from 400 to 1000 usec.
+Process time ranges from 400 to 1000 usec. I know that writes are only about 40% of the speed of reads, so I am not too concerned.
 Not sure if my response time is correct or not, since the clock drift is pretty bad. The actual T4 - T3 is already 2 ms.
 
 ## 6.3 How long, in milliseconds, did you estimate for the read requests and their response
@@ -132,8 +132,8 @@ message transmissions? How long do they actually take? Briefly comment on the
 difference.
 
 ### My estimate
-Send time: 1 to 10 us.
-Process time: 0.7 to 0.9 ms
+Send time: 1 us
+Process time: 100 us (wrong)
 Send response back: 10 ms
 
 ### Actual
@@ -147,8 +147,8 @@ Histogram of floor log 2 buckets of usec response times
 104.7 RPC/s (9.553 msec/RPC), 109.8 TxMB/s,   0.0 RxMB/s
 
 ### Discussion
-It seems that T1, T2, and T3 are the same. 
-I think T2 and T3 are the same because of CPU caching?
-It's probably due to time alignment again :(.
+It seems that T1, T2, and T3 are the same.
+
+Process time estimation is wrong. I think it is because of CPU caching.
 T4 - T3 is matching our expectations.
 The graph is very hard to read.
