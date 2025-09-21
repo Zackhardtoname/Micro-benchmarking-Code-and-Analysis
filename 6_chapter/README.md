@@ -1,6 +1,6 @@
 The implementation code and the book differ quite a bit. I think the author didn't clean up his code and the tech reviewers did a bad job.
 
-The sketches is in the corresponding PDF.
+The drawings are in the corresponding PDF.
 sysbench memory --memory-block-size=1M --memory-total-size=20G --memory-oper=read run
 The default total size is 100 GB which is a terribly misleading default, cuz anything above my 64 GB capacity is swapped(?)
 
@@ -19,7 +19,57 @@ So the weighed process speed is about 5/8 * 2/6.5 + (102770+40000) / 2 / 1024 * 
 
 Question: We are also ignoring CPU caches completely even though the packets completely fit in our caches. I think we have to go through main memory for kernel buffer to user buffer, but what about user buffer to strings and afterward? We should be able to use CPU cache for sure right?
 
-Question: I can't figure out what this 350 usec is talking about on page 108.
+Question: I can't figure out what this 350 usec is talking about on page 108. I think it is actually the T4 - T3 the author got but they had a typo in the table as it should be 350 usec.
+
+## Unaligned
+Example 1:
+Send time (t2 - t1):
+[4834.0, 3626.0, 3597.0, 3594.0, 3592.0, 3597.0, 3595.0, 3597.0, 3593.0, 3583.0] usec
+Process time (t3 - t2):
+[37.0, 2.0, 4.0, 18.0, 4.0, 5.0, 5.0, 5.0, 4.0, 4.0] usec
+Response time (t4 - t3):
+[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] usec
+
+Example 2:
+Send time (t2 - t1):
+[7791.0, 6937.0, 6906.0, 7030.0, 6994.0, 6901.0, 6895.0, 6899.0, 6903.0, 6899.0] usec
+Process time (t3 - t2):
+[780.0, 735.0, 914.0, 387.0, 425.0, 406.0, 409.0, 378.0, 396.0, 381.0] usec
+Response time (t4 - t3):
+[2273.0, 2264.0, 2258.0, 2279.0, 2261.0, 2255.0, 2254.0, 2258.0, 2253.0, 2259.0] usec
+
+Example 3:
+Send time (t2 - t1):
+[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] usec
+Process time (t3 - t2):
+[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] usec
+Response time (t4 - t3):
+[9558.0, 9249.0, 9201.0, 9231.0, 9235.0, 9217.0, 9233.0, 9343.0, 9259.0, 9241.0] usec
+
+## Aligned from Chapter 7
+Example 1:
+Send time (t2 - t1):
+[2201.0, 993.0, 964.0, 960.0, 958.0, 963.0, 961.0, 963.0, 958.0, 948.0] usec
+Process time (t3 - t2):
+[37.0, 2.0, 4.0, 18.0, 4.0, 5.0, 5.0, 5.0, 4.0, 4.0] usec
+Response time (t4 - t3):
+[999.0, 997.0, 953.0, 995.0, 977.0, 971.0, 956.0, 955.0, 955.0, 946.0] usec
+
+Example 2:
+Send time (t2 - t1):
+[9828.0, 8975.0, 8945.0, 9071.0, 9036.0, 8945.0, 8940.0, 8945.0, 8951.0, 8948.0] usec
+Process time (t3 - t2):
+[780.0, 735.0, 914.0, 387.0, 425.0, 406.0, 409.0, 378.0, 396.0, 381.0] usec
+Response time (t4 - t3):
+[236.0, 226.0, 219.0, 238.0, 219.0, 211.0, 209.0, 212.0, 205.0, 210.0] usec
+
+Example 3:
+Send time (t2 - t1):
+[257.0, 215.0, 213.0, 210.0, 211.0, 199.0, 217.0, 232.0, 227.0, 223.0] usec
+Process time (t3 - t2):
+[117.0, 68.0, 56.0, 65.0, 65.0, 66.0, 61.0, 125.0, 61.0, 61.0] usec
+Response time (t4 - t3):
+[9184.0, 8966.0, 8932.0, 8956.0, 8959.0, 8952.0, 8955.0, 8986.0, 8971.0, 8957.0] usec
 
 ## 6.1 How long, in milliseconds, did you estimate for the ping requests and their response
 message transmissions? How long do they actually take? Briefly comment on the
@@ -27,17 +77,7 @@ difference.
 
 ### My estimates:
 Send time = Response time = 1 ms
-Process time = 14 us.
-
-### Actual
-3.237ms  1.992ms  1.921ms  1.973ms  1.939ms  1.939ms  1.922ms  1.923ms  1.917ms  1.898ms  
-
-Histogram of floor log 2 buckets of usec response times
-1 2+ 4+ us            1+ 2+ 4+ msec         1+ 2+ 4+ sec           1K+ 2k+ secs
-|                     |                     |                      |
-0 0 0 0 0 0 0 0 0 0   9 1 0 0 0 0 0 0 0 0   0 0 0 0 0 0 0 0 0 0   0 0 
-10 RPCs,  20.7 msec, 1.025 TxMB, 1.025 RxMB total
-484.0 RPC/s (2.066 msec/RPC),  49.6 TxMB/s,  49.6 RxMB/s
+Process time = 12.5 us.
 
 ### Discussion
 The actual time is slightly less but very impressively close (2.1 - 2.066) / 2.066 = 1.6%. And I didn't even align the time.
@@ -107,48 +147,25 @@ difference.
 ### My estimate
 Send time = 10 ms
 Process time = 160 us
-Reponse time = 1 to 10 us
-
-### Actual
-// I think this specific output is a different run from the committed json and html files.
-10.844ms  9.936ms  10.078ms  9.696ms  9.680ms  9.562ms  9.558ms  9.535ms  9.552ms  9.539ms  
-
-Histogram of floor log 2 buckets of usec response times
-1 2+ 4+ us            1+ 2+ 4+ msec         1+ 2+ 4+ sec           1K+ 2k+ secs
-|                     |                     |                      |
-0 0 0 0 0 0 0 0 0 0   0 0 0 10 0 0 0 0 0 0   0 0 0 0 0 0 0 0 0 0   0 0 
-10 RPCs,  98.0 msec, 10.487 TxMB, 0.001 RxMB total
-102.1 RPC/s (9.798 msec/RPC), 107.0 TxMB/s,   0.0 RxMB/s
-
-client4_20250918_174816_fedora_45458.log written
+Reponse time = 0.8 us
 
 ### Discussion
 Send time is good.
 Process time ranges from 400 to 1000 usec. I know that writes are only about 40% of the speed of reads, so I am not too concerned.
 Not sure if my response time is correct or not, since the clock drift is pretty bad. The actual T4 - T3 is already 2 ms.
+* After alignment*: The response times are about 200 usec. It is still 200x my estimate. So I guess network does have an initial delay/lower bound. Question: where is that from?
 
 ## 6.3 How long, in milliseconds, did you estimate for the read requests and their response
 message transmissions? How long do they actually take? Briefly comment on the
 difference.
 
 ### My estimate
-Send time: 1 us
+Send time: 0.8 us
 Process time: 100 us (wrong)
 Send response back: 10 ms
 
-### Actual
-10.153ms  9.904ms  9.609ms  9.397ms  9.385ms  9.386ms  9.381ms  9.388ms  9.567ms  9.363ms  
-
-Histogram of floor log 2 buckets of usec response times
-1 2+ 4+ us            1+ 2+ 4+ msec         1+ 2+ 4+ sec           1K+ 2k+ secs
-|                     |                     |                      |
-0 0 0 0 0 0 0 0 0 0   0 0 0 10 0 0 0 0 0 0   0 0 0 0 0 0 0 0 0 0   0 0 
-10 RPCs,  95.5 msec, 10.487 TxMB, 0.001 RxMB total
-104.7 RPC/s (9.553 msec/RPC), 109.8 TxMB/s,   0.0 RxMB/s
-
 ### Discussion
-It seems that T1, T2, and T3 are the same.
-
-Process time estimation is wrong. I think it is because of CPU caching.
-T4 - T3 is matching our expectations.
-The graph is very hard to read.
+The graph is impossible to read.
+*After alignment*: I got the same results for send time.
+Process time estimation is wrong. I think it is because of CPU/RAM caching.
+Response time is matching our expectations.
