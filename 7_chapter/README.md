@@ -8,6 +8,11 @@ From 4_3: "t23_alignment y0 22:28:09.912703 offset 709.9us slope 219.06us/sec"
 
 After the alignment, all the overlapping in the original HTMLs are gone.
 
+# Notes
+I only have 2 local Linux and one remote Linux atm. I don't want to mess with my M1 MBP just for this. If 
+The latency from local to remote for 64 bytes is 10 ms whereas locally it's 200 usec. It's also too much variation going through the public internet. The results will be so flakey.
+I get another local machine, I'll be back.
+
 ## 7.2 Build and run Experiment 1 yourself on whatever sample servers you have available. 
 Reconstruct Figures 7.6a and 7.6b from your data. Comment briefly on the differences you 
 observe.
