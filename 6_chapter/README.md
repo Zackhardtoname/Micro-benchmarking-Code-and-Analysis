@@ -27,7 +27,7 @@ Send time (t2 - t1):
 [4834.0, 3626.0, 3597.0, 3594.0, 3592.0, 3597.0, 3595.0, 3597.0, 3593.0, 3583.0] usec
 Process time (t3 - t2):
 [37.0, 2.0, 4.0, 18.0, 4.0, 5.0, 5.0, 5.0, 4.0, 4.0] usec
-Response time (t4 - t3):
+send back time (t4 - t3):
 [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] usec
 
 Example 2:
@@ -35,7 +35,7 @@ Send time (t2 - t1):
 [7791.0, 6937.0, 6906.0, 7030.0, 6994.0, 6901.0, 6895.0, 6899.0, 6903.0, 6899.0] usec
 Process time (t3 - t2):
 [780.0, 735.0, 914.0, 387.0, 425.0, 406.0, 409.0, 378.0, 396.0, 381.0] usec
-Response time (t4 - t3):
+send back time (t4 - t3):
 [2273.0, 2264.0, 2258.0, 2279.0, 2261.0, 2255.0, 2254.0, 2258.0, 2253.0, 2259.0] usec
 
 Example 3:
@@ -43,7 +43,7 @@ Send time (t2 - t1):
 [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] usec
 Process time (t3 - t2):
 [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] usec
-Response time (t4 - t3):
+send back time (t4 - t3):
 [9558.0, 9249.0, 9201.0, 9231.0, 9235.0, 9217.0, 9233.0, 9343.0, 9259.0, 9241.0] usec
 
 ## Aligned from Chapter 7
@@ -52,7 +52,7 @@ Send time (t2 - t1):
 [2201.0, 993.0, 964.0, 960.0, 958.0, 963.0, 961.0, 963.0, 958.0, 948.0] usec
 Process time (t3 - t2):
 [37.0, 2.0, 4.0, 18.0, 4.0, 5.0, 5.0, 5.0, 4.0, 4.0] usec
-Response time (t4 - t3):
+send back time (t4 - t3):
 [999.0, 997.0, 953.0, 995.0, 977.0, 971.0, 956.0, 955.0, 955.0, 946.0] usec
 
 Example 2:
@@ -60,7 +60,7 @@ Send time (t2 - t1):
 [9828.0, 8975.0, 8945.0, 9071.0, 9036.0, 8945.0, 8940.0, 8945.0, 8951.0, 8948.0] usec
 Process time (t3 - t2):
 [780.0, 735.0, 914.0, 387.0, 425.0, 406.0, 409.0, 378.0, 396.0, 381.0] usec
-Response time (t4 - t3):
+send back time (t4 - t3):
 [236.0, 226.0, 219.0, 238.0, 219.0, 211.0, 209.0, 212.0, 205.0, 210.0] usec
 
 Example 3:
@@ -68,7 +68,7 @@ Send time (t2 - t1):
 [257.0, 215.0, 213.0, 210.0, 211.0, 199.0, 217.0, 232.0, 227.0, 223.0] usec
 Process time (t3 - t2):
 [117.0, 68.0, 56.0, 65.0, 65.0, 66.0, 61.0, 125.0, 61.0, 61.0] usec
-Response time (t4 - t3):
+send back time (t4 - t3):
 [9184.0, 8966.0, 8932.0, 8956.0, 8959.0, 8952.0, 8955.0, 8986.0, 8971.0, 8957.0] usec
 
 ## 6.1 How long, in milliseconds, did you estimate for the ping requests and their response
@@ -76,7 +76,7 @@ message transmissions? How long do they actually take? Briefly comment on the
 difference.
 
 ### My estimates:
-Send time = Response time = 1 ms
+Send time = send back time = 1 ms
 Process time = 12.5 us.
 
 ### Discussion
@@ -152,8 +152,8 @@ Reponse time = 0.8 us
 ### Discussion
 Send time is good.
 Process time ranges from 400 to 1000 usec. I know that writes are only about 40% of the speed of reads, so I am not too concerned.
-Not sure if my response time is correct or not, since the clock drift is pretty bad. The actual T4 - T3 is already 2 ms.
-* After alignment*: The response times are about 200 usec. It is still 200x my estimate. So I guess network does have an initial delay/lower bound. Question: where is that from?
+Not sure if my send back time is correct or not, since the clock drift is pretty bad. The actual T4 - T3 is already 2 ms.
+* After alignment*: The send back times are about 200 usec. It is still 200x my estimate. So I guess network does have an initial delay/lower bound. Question: where is that from?
 
 ## 6.3 How long, in milliseconds, did you estimate for the read requests and their response
 message transmissions? How long do they actually take? Briefly comment on the
@@ -168,4 +168,4 @@ Send response back: 10 ms
 The graph is impossible to read.
 *After alignment*: I got the same results for send time.
 Process time estimation is wrong. I think it is because of CPU/RAM caching.
-Response time is matching our expectations.
+send back time is matching our expectations.
