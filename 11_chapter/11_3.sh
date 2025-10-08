@@ -49,13 +49,13 @@ FINAL_DATA="perf_data_final.data"
 
 echo -e "\n===== Generating detailed perf report for $FINAL_EXE ====="
 rm -f "$FINAL_DATA"
-perf record -o "$FINAL_DATA" -q ./$FINAL_CMD
+perf record -o "$FINAL_DATA" -q -g ./$FINAL_CMD
 
-echo "--- Summary report ---"
+echo "--- Generating summary report ---"
 perf report -i "$FINAL_DATA" --stdio > perf_summary.txt
 
-echo "--- Source-annotated report ---"
-perf annotate -i "$FINAL_DATA" --stdio > perf_source_report.txt
+echo "--- Generating source-annotated report ---"
+perf annotate -i "$FINAL_DATA" --source --stdio > perf_source_report.txt
 
 echo -e "\nReports generated:"
 echo "  perf_summary.txt"

@@ -3,37 +3,227 @@
 #
 # Total Lost Samples: 0
 #
-# Samples: 54K of event 'cycles:Pu'
-# Event count (approx.): 70805364449
+# Samples: 53K of event 'cycles:Pu'
+# Event count (approx.): 70504342263
 #
-# Overhead  Command         Shared Object         Symbol                         
-# ........  ..............  ....................  ...............................
+# Children      Self  Command         Shared Object         Symbol                                                    
+# ........  ........  ..............  ....................  ..........................................................
 #
-    39.38%  whetstone_ku_6  whetstone_ku_6        [.] P3(double, double, double*)
-    27.70%  whetstone_ku_6  whetstone_ku_6        [.] P0()
-     7.17%  whetstone_ku_6  whetstone_ku_6        [.] PA(double*)
-     5.03%  whetstone_ku_6  libm.so.6             [.] __ieee754_log_fma
-     4.84%  whetstone_ku_6  libm.so.6             [.] __ieee754_exp_fma
-     4.68%  whetstone_ku_6  whetstone_ku_6        [.] main
-     4.30%  whetstone_ku_6  libm.so.6             [.] __atan_fma
-     3.58%  whetstone_ku_6  libm.so.6             [.] __cos_fma
-     1.69%  whetstone_ku_6  libm.so.6             [.] __sincos_fma
-     0.69%  whetstone_ku_6  libm.so.6             [.] log@@GLIBC_2.29
-     0.65%  whetstone_ku_6  libm.so.6             [.] exp@@GLIBC_2.29
-     0.09%  whetstone_ku_6  whetstone_ku_6        [.] cos@plt
-     0.09%  whetstone_ku_6  libc.so.6             [.] __mcount_internal
-     0.04%  whetstone_ku_6  libc.so.6             [.] _mcount
-     0.03%  whetstone_ku_6  [unknown]             [k] 0xffffffffb2c015f0
-     0.03%  whetstone_ku_6  [unknown]             [k] 0xffffffffb30cdf81
-     0.01%  whetstone_ku_6  whetstone_ku_6        [.] sincos@plt
-     0.01%  whetstone_ku_6  [unknown]             [k] 0xffffffffb30cdf74
-     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_lookup_symbol_x
-     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] __GI___tunables_init
-     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_start
-     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb2c01280
-     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb2c01630
+   100.00%     0.00%  whetstone_ku_6  whetstone_ku_6        [.] _start
+            |
+            ---_start
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               |          
+               |--94.09%--main
+               |          |          
+               |          |--39.55%--P3(double, double, double*)
+               |          |          
+               |          |--27.80%--P0()
+               |          |          
+               |          |--7.07%--PA(double*)
+               |          |          
+               |          |--4.80%--__ieee754_exp_fma
+               |          |          
+               |          |--4.74%--__cos_fma
+               |          |          
+               |          |--2.27%--__sincos_fma
+               |          |          
+               |          |--1.78%--__atan_fma
+               |          |          
+               |           --0.72%--exp@@GLIBC_2.29
+               |          
+                --5.07%--__ieee754_log_fma
+
+   100.00%     0.00%  whetstone_ku_6  libc.so.6             [.] __libc_start_main@@GLIBC_2.34
+            |
+            ---__libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               |          
+               |--94.09%--main
+               |          |          
+               |          |--39.55%--P3(double, double, double*)
+               |          |          
+               |          |--27.80%--P0()
+               |          |          
+               |          |--7.07%--PA(double*)
+               |          |          
+               |          |--4.80%--__ieee754_exp_fma
+               |          |          
+               |          |--4.74%--__cos_fma
+               |          |          
+               |          |--2.27%--__sincos_fma
+               |          |          
+               |          |--1.78%--__atan_fma
+               |          |          
+               |           --0.72%--exp@@GLIBC_2.29
+               |          
+                --5.07%--__ieee754_log_fma
+
+   100.00%     0.00%  whetstone_ku_6  libc.so.6             [.] __libc_start_call_main
+            |
+            ---__libc_start_call_main
+               |          
+               |--94.09%--main
+               |          |          
+               |          |--39.55%--P3(double, double, double*)
+               |          |          
+               |          |--27.80%--P0()
+               |          |          
+               |          |--7.07%--PA(double*)
+               |          |          
+               |          |--4.80%--__ieee754_exp_fma
+               |          |          
+               |          |--4.74%--__cos_fma
+               |          |          
+               |          |--2.27%--__sincos_fma
+               |          |          
+               |          |--1.78%--__atan_fma
+               |          |          
+               |           --0.72%--exp@@GLIBC_2.29
+               |          
+                --5.07%--__ieee754_log_fma
+
+    94.09%     5.09%  whetstone_ku_6  whetstone_ku_6        [.] main
+            |          
+            |--89.00%--main
+            |          |          
+            |          |--39.55%--P3(double, double, double*)
+            |          |          
+            |          |--27.80%--P0()
+            |          |          
+            |          |--7.07%--PA(double*)
+            |          |          
+            |          |--4.80%--__ieee754_exp_fma
+            |          |          
+            |          |--4.74%--__cos_fma
+            |          |          
+            |          |--2.27%--__sincos_fma
+            |          |          
+            |          |--1.78%--__atan_fma
+            |          |          
+            |           --0.72%--exp@@GLIBC_2.29
+            |          
+             --5.09%--_start
+                       __libc_start_main@@GLIBC_2.34
+                       __libc_start_call_main
+                       main
+
+    39.55%    39.54%  whetstone_ku_6  whetstone_ku_6        [.] P3(double, double, double*)
+            |          
+             --39.54%--_start
+                       __libc_start_main@@GLIBC_2.34
+                       __libc_start_call_main
+                       |          
+                        --39.54%--main
+                                  P3(double, double, double*)
+
+    27.80%    27.80%  whetstone_ku_6  whetstone_ku_6        [.] P0()
+            |          
+             --27.80%--_start
+                       __libc_start_main@@GLIBC_2.34
+                       __libc_start_call_main
+                       main
+                       P0()
+
+     7.10%     7.10%  whetstone_ku_6  whetstone_ku_6        [.] PA(double*)
+            |          
+             --7.10%--_start
+                       __libc_start_main@@GLIBC_2.34
+                       __libc_start_call_main
+                       |          
+                        --7.07%--main
+                                  PA(double*)
+
+     5.07%     5.07%  whetstone_ku_6  libm.so.6             [.] __ieee754_log_fma
+            |
+            ---_start
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               __ieee754_log_fma
+
+     4.87%     4.87%  whetstone_ku_6  libm.so.6             [.] __cos_fma
+            |
+            ---_start
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               |          
+                --4.74%--main
+                          __cos_fma
+
+     4.80%     4.80%  whetstone_ku_6  libm.so.6             [.] __ieee754_exp_fma
+            |
+            ---_start
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               main
+               __ieee754_exp_fma
+
+     2.40%     2.40%  whetstone_ku_6  libm.so.6             [.] __sincos_fma
+            |
+            ---_start
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               |          
+                --2.27%--main
+                          __sincos_fma
+
+     1.85%     1.85%  whetstone_ku_6  libm.so.6             [.] __atan_fma
+            |
+            ---_start
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               |          
+                --1.78%--main
+                          __atan_fma
+
+     0.79%     0.79%  whetstone_ku_6  libm.so.6             [.] exp@@GLIBC_2.29
+            |
+            ---_start
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               |          
+                --0.72%--main
+                          exp@@GLIBC_2.29
+
+     0.20%     0.20%  whetstone_ku_6  libm.so.6             [.] log@@GLIBC_2.29
+     0.19%     0.14%  whetstone_ku_6  libc.so.6             [.] __mcount_internal
+     0.16%     0.16%  whetstone_ku_6  whetstone_ku_6        [.] cos@plt
+     0.08%     0.07%  whetstone_ku_6  libc.so.6             [.] _mcount
+     0.05%     0.05%  whetstone_ku_6  whetstone_ku_6        [.] sincos@plt
+     0.03%     0.03%  whetstone_ku_6  [unknown]             [k] 0xffffffffb2c015f0
+     0.02%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb2c0160a
+     0.02%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb4130608
+     0.02%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb2f64eb5
+     0.02%     0.02%  whetstone_ku_6  [unknown]             [k] 0xffffffffb30cdf81
+     0.01%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb30cdfc3
+     0.00%     0.00%  whetstone_ku_6  whetstone_ku_6        [.] atan@plt
+     0.00%     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb30665c3
+     0.00%     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb30665e2
+     0.00%     0.00%  whetstone_ku_6  libc.so.6             [.] __printf_fp_buffer_1.isra.0
+     0.00%     0.00%  whetstone_ku_6  whetstone_ku_6        [.] POUT(long, long, long, double, double, double, double)
+     0.00%     0.00%  whetstone_ku_6  libc.so.6             [.] printf
+     0.00%     0.00%  whetstone_ku_6  libc.so.6             [.] __vfprintf_internal
+     0.00%     0.00%  whetstone_ku_6  libc.so.6             [.] __printf_buffer
+     0.00%     0.00%  whetstone_ku_6  libc.so.6             [.] __printf_fp_l_buffer
+     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_start
+     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_start_user
+     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_sysdep_start
+     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_lookup_symbol_x
+     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] dl_main
+     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_relocate_object
+     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_relocate_object_no_relro
+     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] handle_amd
+     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] init_cpu_features.constprop.0
+     0.00%     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb32e9641
+     0.00%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb2c012a6
+     0.00%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb4131044
+     0.00%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb2f87a99
+     0.00%     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb2c01280
+     0.00%     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb2c01630
+     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _start
 
 
 #
-# (Tip: To see callchains in a more compact form: perf report -g folded)
+# (Tip: Show user configuration overrides: perf config --user --list)
 #

@@ -3,14 +3,14 @@
 --- Building whetstone_ku_0 with flags: -O2 ---
 --- Running whetstone_ku_0 (normal run) ---
 
-Loops: 1000000, Iterations: 1, Duration: 5.151 sec.
-C Converted Double Precision Whetstones: 19412 MIPS
-5.14user 0.00system 0:05.15elapsed 99%CPU (0avgtext+0avgdata 4344maxresident)k
+Loops: 1000000, Iterations: 1, Duration: 5.422 sec.
+C Converted Double Precision Whetstones: 18443 MIPS
+5.41user 0.00system 0:05.42elapsed 99%CPU (0avgtext+0avgdata 3996maxresident)k
 0inputs+0outputs (0major+155minor)pagefaults 0swaps
 --- Profiling whetstone_ku_0 with perf ---
 
-Loops: 1000000, Iterations: 1, Duration: 5.410 sec.
-C Converted Double Precision Whetstones: 18485 MIPS
+Loops: 1000000, Iterations: 1, Duration: 5.478 sec.
+C Converted Double Precision Whetstones: 18256 MIPS
 --- Generating short perf report for whetstone_ku_0 ---
 # To display the perf.data header info, please use --header/--header-only options.
 #
@@ -18,10 +18,10 @@ C Converted Double Precision Whetstones: 18485 MIPS
 # Total Lost Samples: 0
 #
 # Samples: 21K of event 'cycles:Pu'
-# Event count (approx.): 28365699443
+# Event count (approx.): 28736329054
 #
-# Overhead  Command         Shared Object         Symbol                         
-# ........  ..............  ....................  ...............................
+# Overhead  Command         Shared Object         Symbol                                                                                            
+# ........  ..............  ....................  ..................................................................................................
 
 --- Building whetstone_ku_1 with flags: -O2 -DPRINTOUT ---
 --- Running whetstone_ku_1 (normal run) ---
@@ -36,10 +36,10 @@ C Converted Double Precision Whetstones: 18485 MIPS
       0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 93000000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
 
-Loops: 1000000, Iterations: 1, Duration: 5.092 sec.
-C Converted Double Precision Whetstones: 19639 MIPS
-5.08user 0.00system 0:05.09elapsed 99%CPU (0avgtext+0avgdata 4160maxresident)k
-0inputs+0outputs (0major+156minor)pagefaults 0swaps
+Loops: 1000000, Iterations: 1, Duration: 5.168 sec.
+C Converted Double Precision Whetstones: 19351 MIPS
+5.16user 0.00system 0:05.16elapsed 99%CPU (0avgtext+0avgdata 4376maxresident)k
+0inputs+0outputs (0major+157minor)pagefaults 0swaps
 --- Profiling whetstone_ku_1 with perf ---
       0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 12000000 14000000 12000000 -1.7680e-313  2.3567e-314 -1.7679e-313  2.3568e-314
@@ -52,8 +52,8 @@ C Converted Double Precision Whetstones: 19639 MIPS
       0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 93000000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
 
-Loops: 1000000, Iterations: 1, Duration: 5.153 sec.
-C Converted Double Precision Whetstones: 19407 MIPS
+Loops: 1000000, Iterations: 1, Duration: 5.117 sec.
+C Converted Double Precision Whetstones: 19541 MIPS
 --- Generating short perf report for whetstone_ku_1 ---
 # To display the perf.data header info, please use --header/--header-only options.
 #
@@ -61,10 +61,10 @@ C Converted Double Precision Whetstones: 19407 MIPS
 # Total Lost Samples: 0
 #
 # Samples: 20K of event 'cycles:Pu'
-# Event count (approx.): 27031903962
+# Event count (approx.): 26849698225
 #
-# Overhead  Command         Shared Object         Symbol                         
-# ........  ..............  ....................  ...............................
+# Overhead  Command         Shared Object         Symbol                          
+# ........  ..............  ....................  ................................
 
 --- Building whetstone_ku_2 with flags: -O2 -DPRINTOUT -fprofile-arcs ---
 --- Running whetstone_ku_2 (normal run) ---
@@ -79,10 +79,10 @@ C Converted Double Precision Whetstones: 19407 MIPS
       0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 93000000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
 
-Loops: 1000000, Iterations: 1, Duration: 6.719 sec.
-C Converted Double Precision Whetstones: 14883 MIPS
-6.71user 0.00system 0:06.71elapsed 99%CPU (0avgtext+0avgdata 4252maxresident)k
-0inputs+24outputs (0major+162minor)pagefaults 0swaps
+Loops: 1000000, Iterations: 1, Duration: 6.702 sec.
+C Converted Double Precision Whetstones: 14921 MIPS
+6.69user 0.00system 0:06.70elapsed 99%CPU (0avgtext+0avgdata 4268maxresident)k
+0inputs+24outputs (0major+161minor)pagefaults 0swaps
 --- Profiling whetstone_ku_2 with perf ---
       0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 12000000 14000000 12000000 -1.7680e-313  2.3567e-314 -1.7679e-313  2.3568e-314
@@ -95,8 +95,8 @@ C Converted Double Precision Whetstones: 14883 MIPS
       0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 93000000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
 
-Loops: 1000000, Iterations: 1, Duration: 6.906 sec.
-C Converted Double Precision Whetstones: 14481 MIPS
+Loops: 1000000, Iterations: 1, Duration: 6.772 sec.
+C Converted Double Precision Whetstones: 14767 MIPS
 --- Generating short perf report for whetstone_ku_2 ---
 # To display the perf.data header info, please use --header/--header-only options.
 #
@@ -104,10 +104,10 @@ C Converted Double Precision Whetstones: 14481 MIPS
 # Total Lost Samples: 0
 #
 # Samples: 27K of event 'cycles:Pu'
-# Event count (approx.): 36225379357
+# Event count (approx.): 35521140952
 #
-# Overhead  Command         Shared Object         Symbol                            
-# ........  ..............  ....................  ..................................
+# Overhead  Command         Shared Object         Symbol                         
+# ........  ..............  ....................  ...............................
 
 --- Building whetstone_ku_3 with flags: -O2 -DPRINTOUT -fprofile-arcs -ftest-coverage ---
 --- Running whetstone_ku_3 (normal run) ---
@@ -122,10 +122,10 @@ C Converted Double Precision Whetstones: 14481 MIPS
       0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 93000000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
 
-Loops: 1000000, Iterations: 1, Duration: 6.703 sec.
-C Converted Double Precision Whetstones: 14919 MIPS
-6.69user 0.00system 0:06.70elapsed 99%CPU (0avgtext+0avgdata 4188maxresident)k
-0inputs+16outputs (0major+161minor)pagefaults 0swaps
+Loops: 1000000, Iterations: 1, Duration: 6.676 sec.
+C Converted Double Precision Whetstones: 14979 MIPS
+6.66user 0.00system 0:06.67elapsed 99%CPU (0avgtext+0avgdata 4252maxresident)k
+0inputs+16outputs (0major+160minor)pagefaults 0swaps
 --- Profiling whetstone_ku_3 with perf ---
       0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 12000000 14000000 12000000 -1.7680e-313  2.3567e-314 -1.7679e-313  2.3568e-314
@@ -138,16 +138,16 @@ C Converted Double Precision Whetstones: 14919 MIPS
       0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 93000000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
 
-Loops: 1000000, Iterations: 1, Duration: 6.679 sec.
-C Converted Double Precision Whetstones: 14971 MIPS
+Loops: 1000000, Iterations: 1, Duration: 6.799 sec.
+C Converted Double Precision Whetstones: 14709 MIPS
 --- Generating short perf report for whetstone_ku_3 ---
 # To display the perf.data header info, please use --header/--header-only options.
 #
 #
 # Total Lost Samples: 0
 #
-# Samples: 26K of event 'cycles:Pu'
-# Event count (approx.): 35022760599
+# Samples: 27K of event 'cycles:Pu'
+# Event count (approx.): 35654822077
 #
 # Overhead  Command         Shared Object         Symbol                         
 # ........  ..............  ....................  ...............................
@@ -165,10 +165,10 @@ C Converted Double Precision Whetstones: 14971 MIPS
       0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 93000000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
 
-Loops: 1000000, Iterations: 1, Duration: 6.664 sec.
-C Converted Double Precision Whetstones: 15007 MIPS
-6.65user 0.00system 0:06.66elapsed 99%CPU (0avgtext+0avgdata 4312maxresident)k
-0inputs+16outputs (0major+161minor)pagefaults 0swaps
+Loops: 1000000, Iterations: 1, Duration: 6.639 sec.
+C Converted Double Precision Whetstones: 15063 MIPS
+6.63user 0.00system 0:06.63elapsed 99%CPU (0avgtext+0avgdata 4252maxresident)k
+0inputs+16outputs (0major+158minor)pagefaults 0swaps
 --- Profiling whetstone_ku_4 with perf ---
       0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 12000000 14000000 12000000 -1.7680e-313  2.3567e-314 -1.7679e-313  2.3568e-314
@@ -181,19 +181,19 @@ C Converted Double Precision Whetstones: 15007 MIPS
       0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 93000000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
 
-Loops: 1000000, Iterations: 1, Duration: 6.943 sec.
-C Converted Double Precision Whetstones: 14404 MIPS
+Loops: 1000000, Iterations: 1, Duration: 6.704 sec.
+C Converted Double Precision Whetstones: 14916 MIPS
 --- Generating short perf report for whetstone_ku_4 ---
 # To display the perf.data header info, please use --header/--header-only options.
 #
 #
 # Total Lost Samples: 0
 #
-# Samples: 27K of event 'cycles:Pu'
-# Event count (approx.): 36409957131
+# Samples: 26K of event 'cycles:Pu'
+# Event count (approx.): 35151406753
 #
-# Overhead  Command         Shared Object         Symbol                          
-# ........  ..............  ....................  ................................
+# Overhead  Command         Shared Object         Symbol                         
+# ........  ..............  ....................  ...............................
 
 --- Building whetstone_ku_5 with flags: -O2 -DPRINTOUT -fprofile-arcs -ftest-coverage -fno-inline -pg ---
 --- Running whetstone_ku_5 (normal run) ---
@@ -208,10 +208,10 @@ C Converted Double Precision Whetstones: 14404 MIPS
       0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 93000000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
 
-Loops: 1000000, Iterations: 1, Duration: 13.466 sec.
-C Converted Double Precision Whetstones: 7426 MIPS
-13.45user 0.00system 0:13.46elapsed 99%CPU (0avgtext+0avgdata 4392maxresident)k
-0inputs+48outputs (0major+170minor)pagefaults 0swaps
+Loops: 1000000, Iterations: 1, Duration: 13.492 sec.
+C Converted Double Precision Whetstones: 7412 MIPS
+13.47user 0.00system 0:13.49elapsed 99%CPU (0avgtext+0avgdata 4396maxresident)k
+0inputs+48outputs (0major+169minor)pagefaults 0swaps
 --- Profiling whetstone_ku_5 with perf ---
       0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 12000000 14000000 12000000 -1.7680e-313  2.3567e-314 -1.7679e-313  2.3568e-314
@@ -224,16 +224,16 @@ C Converted Double Precision Whetstones: 7426 MIPS
       0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 93000000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
 
-Loops: 1000000, Iterations: 1, Duration: 13.570 sec.
-C Converted Double Precision Whetstones: 7369 MIPS
+Loops: 1000000, Iterations: 1, Duration: 13.879 sec.
+C Converted Double Precision Whetstones: 7205 MIPS
 --- Generating short perf report for whetstone_ku_5 ---
 # To display the perf.data header info, please use --header/--header-only options.
 #
 #
 # Total Lost Samples: 0
 #
-# Samples: 54K of event 'cycles:Pu'
-# Event count (approx.): 71106956128
+# Samples: 55K of event 'cycles:Pu'
+# Event count (approx.): 72729486956
 #
 # Overhead  Command         Shared Object         Symbol                         
 # ........  ..............  ....................  ...............................
@@ -251,9 +251,9 @@ C Converted Double Precision Whetstones: 7369 MIPS
       0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 93000000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
 
-Loops: 1000000, Iterations: 1, Duration: 13.514 sec.
-C Converted Double Precision Whetstones: 7400 MIPS
-13.50user 0.00system 0:13.51elapsed 99%CPU (0avgtext+0avgdata 4164maxresident)k
+Loops: 1000000, Iterations: 1, Duration: 13.709 sec.
+C Converted Double Precision Whetstones: 7295 MIPS
+13.69user 0.00system 0:13.70elapsed 99%CPU (0avgtext+0avgdata 4380maxresident)k
 0inputs+80outputs (0major+168minor)pagefaults 0swaps
 --- Profiling whetstone_ku_6 with perf ---
       0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
@@ -267,16 +267,16 @@ C Converted Double Precision Whetstones: 7400 MIPS
       0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 93000000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
 
-Loops: 1000000, Iterations: 1, Duration: 13.505 sec.
-C Converted Double Precision Whetstones: 7404 MIPS
+Loops: 1000000, Iterations: 1, Duration: 13.852 sec.
+C Converted Double Precision Whetstones: 7219 MIPS
 --- Generating short perf report for whetstone_ku_6 ---
 # To display the perf.data header info, please use --header/--header-only options.
 #
 #
 # Total Lost Samples: 0
 #
-# Samples: 54K of event 'cycles:Pu'
-# Event count (approx.): 70788059218
+# Samples: 55K of event 'cycles:Pu'
+# Event count (approx.): 72599991403
 #
 # Overhead  Command         Shared Object         Symbol                         
 # ........  ..............  ....................  ...............................
@@ -293,10 +293,10 @@ C Converted Double Precision Whetstones: 7404 MIPS
       0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
 93000000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
 
-Loops: 1000000, Iterations: 1, Duration: 13.507 sec.
-C Converted Double Precision Whetstones: 7403 MIPS
---- Summary report ---
---- Source-annotated report ---
+Loops: 1000000, Iterations: 1, Duration: 13.476 sec.
+C Converted Double Precision Whetstones: 7421 MIPS
+--- Generating summary report ---
+--- Generating source-annotated report ---
 
 Reports generated:
   perf_summary.txt
