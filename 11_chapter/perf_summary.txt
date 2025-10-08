@@ -1,0 +1,39 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 54K of event 'cycles:Pu'
+# Event count (approx.): 70805364449
+#
+# Overhead  Command         Shared Object         Symbol                         
+# ........  ..............  ....................  ...............................
+#
+    39.38%  whetstone_ku_6  whetstone_ku_6        [.] P3(double, double, double*)
+    27.70%  whetstone_ku_6  whetstone_ku_6        [.] P0()
+     7.17%  whetstone_ku_6  whetstone_ku_6        [.] PA(double*)
+     5.03%  whetstone_ku_6  libm.so.6             [.] __ieee754_log_fma
+     4.84%  whetstone_ku_6  libm.so.6             [.] __ieee754_exp_fma
+     4.68%  whetstone_ku_6  whetstone_ku_6        [.] main
+     4.30%  whetstone_ku_6  libm.so.6             [.] __atan_fma
+     3.58%  whetstone_ku_6  libm.so.6             [.] __cos_fma
+     1.69%  whetstone_ku_6  libm.so.6             [.] __sincos_fma
+     0.69%  whetstone_ku_6  libm.so.6             [.] log@@GLIBC_2.29
+     0.65%  whetstone_ku_6  libm.so.6             [.] exp@@GLIBC_2.29
+     0.09%  whetstone_ku_6  whetstone_ku_6        [.] cos@plt
+     0.09%  whetstone_ku_6  libc.so.6             [.] __mcount_internal
+     0.04%  whetstone_ku_6  libc.so.6             [.] _mcount
+     0.03%  whetstone_ku_6  [unknown]             [k] 0xffffffffb2c015f0
+     0.03%  whetstone_ku_6  [unknown]             [k] 0xffffffffb30cdf81
+     0.01%  whetstone_ku_6  whetstone_ku_6        [.] sincos@plt
+     0.01%  whetstone_ku_6  [unknown]             [k] 0xffffffffb30cdf74
+     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_lookup_symbol_x
+     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] __GI___tunables_init
+     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_start
+     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb2c01280
+     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb2c01630
+
+
+#
+# (Tip: To see callchains in a more compact form: perf report -g folded)
+#
