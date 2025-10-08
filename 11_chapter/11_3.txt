@@ -1,0 +1,304 @@
+===== Running Whetstone with incremental compilation flags (perf) =====
+
+--- Building whetstone_ku_0 with flags: -O2 ---
+--- Running whetstone_ku_0 (normal run) ---
+
+Insufficient duration- Increase the LOOP count
+Command exited with non-zero status 1
+0.48user 0.00system 0:00.48elapsed 99%CPU (0avgtext+0avgdata 3700maxresident)k
+0inputs+0outputs (0major+151minor)pagefaults 0swaps
+--- Profiling whetstone_ku_0 with perf ---
+
+Loops: 100000, Iterations: 1, Duration: 0.488 sec.
+C Converted Double Precision Whetstones: 20477 MIPS
+--- Generating short perf report for whetstone_ku_0 ---
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 1K of event 'cycles:Pu'
+# Event count (approx.): 2558956596
+#
+# Overhead  Command         Shared Object         Symbol                         
+# ........  ..............  ....................  ...............................
+
+--- Building whetstone_ku_1 with flags: -O2 -DPRINTOUT ---
+--- Running whetstone_ku_1 (normal run) ---
+      0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+1200000 1400000 1200000   2.9797e-32  -3.7671e-32   2.9784e-32  -3.7682e-32
+1400000 1200000 1200000   5.5551e-95  -6.9990e-95  -8.8181e-95  -2.1373e-94
+34500000       1       1   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+21000000       1       2   6.0000e+00   6.0000e+00  -8.8181e-95  -2.1373e-94
+3200000       1       2   1.4592e-70   1.4592e-70   1.4592e-70   1.4592e-70
+89900000       1       2   1.0000e+00   1.0000e+00   9.9994e-01   9.9994e-01
+61600000       1       2   3.0000e+00   2.0000e+00   3.0000e+00  -2.1373e-94
+      0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+9300000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
+
+Loops: 100000, Iterations: 1, Duration: 0.482 sec.
+C Converted Double Precision Whetstones: 20738 MIPS
+0.48user 0.00system 0:00.48elapsed 99%CPU (0avgtext+0avgdata 4292maxresident)k
+0inputs+0outputs (0major+159minor)pagefaults 0swaps
+--- Profiling whetstone_ku_1 with perf ---
+      0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+1200000 1400000 1200000   2.9797e-32  -3.7671e-32   2.9784e-32  -3.7682e-32
+1400000 1200000 1200000   5.5551e-95  -6.9990e-95  -8.8181e-95  -2.1373e-94
+34500000       1       1   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+21000000       1       2   6.0000e+00   6.0000e+00  -8.8181e-95  -2.1373e-94
+3200000       1       2   1.4592e-70   1.4592e-70   1.4592e-70   1.4592e-70
+89900000       1       2   1.0000e+00   1.0000e+00   9.9994e-01   9.9994e-01
+61600000       1       2   3.0000e+00   2.0000e+00   3.0000e+00  -2.1373e-94
+      0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+9300000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
+
+Insufficient duration- Increase the LOOP count
+--- Generating short perf report for whetstone_ku_1 ---
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 1K of event 'cycles:Pu'
+# Event count (approx.): 2532301053
+#
+# Overhead  Command         Shared Object         Symbol                         
+# ........  ..............  ....................  ...............................
+
+--- Building whetstone_ku_2 with flags: -O2 -DPRINTOUT -fprofile-arcs ---
+--- Running whetstone_ku_2 (normal run) ---
+      0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+1200000 1400000 1200000   2.9797e-32  -3.7671e-32   2.9784e-32  -3.7682e-32
+1400000 1200000 1200000   5.5551e-95  -6.9990e-95  -8.8181e-95  -2.1373e-94
+34500000       1       1   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+21000000       1       2   6.0000e+00   6.0000e+00  -8.8181e-95  -2.1373e-94
+3200000       1       2   1.4592e-70   1.4592e-70   1.4592e-70   1.4592e-70
+89900000       1       2   1.0000e+00   1.0000e+00   9.9994e-01   9.9994e-01
+61600000       1       2   3.0000e+00   2.0000e+00   3.0000e+00  -2.1373e-94
+      0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+9300000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
+
+Insufficient duration- Increase the LOOP count
+Command exited with non-zero status 1
+0.63user 0.00system 0:00.63elapsed 99%CPU (0avgtext+0avgdata 4248maxresident)k
+0inputs+24outputs (0major+159minor)pagefaults 0swaps
+--- Profiling whetstone_ku_2 with perf ---
+      0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+1200000 1400000 1200000   2.9797e-32  -3.7671e-32   2.9784e-32  -3.7682e-32
+1400000 1200000 1200000   5.5551e-95  -6.9990e-95  -8.8181e-95  -2.1373e-94
+34500000       1       1   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+21000000       1       2   6.0000e+00   6.0000e+00  -8.8181e-95  -2.1373e-94
+3200000       1       2   1.4592e-70   1.4592e-70   1.4592e-70   1.4592e-70
+89900000       1       2   1.0000e+00   1.0000e+00   9.9994e-01   9.9994e-01
+61600000       1       2   3.0000e+00   2.0000e+00   3.0000e+00  -2.1373e-94
+      0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+9300000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
+
+Loops: 100000, Iterations: 1, Duration: 0.635 sec.
+C Converted Double Precision Whetstones: 15760 MIPS
+--- Generating short perf report for whetstone_ku_2 ---
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 2K of event 'cycles:Pu'
+# Event count (approx.): 3326622026
+#
+# Overhead  Command         Shared Object         Symbol                         
+# ........  ..............  ....................  ...............................
+
+--- Building whetstone_ku_3 with flags: -O2 -DPRINTOUT -fprofile-arcs -ftest-coverage ---
+--- Running whetstone_ku_3 (normal run) ---
+      0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+1200000 1400000 1200000   2.9797e-32  -3.7671e-32   2.9784e-32  -3.7682e-32
+1400000 1200000 1200000   5.5551e-95  -6.9990e-95  -8.8181e-95  -2.1373e-94
+34500000       1       1   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+21000000       1       2   6.0000e+00   6.0000e+00  -8.8181e-95  -2.1373e-94
+3200000       1       2   1.4592e-70   1.4592e-70   1.4592e-70   1.4592e-70
+89900000       1       2   1.0000e+00   1.0000e+00   9.9994e-01   9.9994e-01
+61600000       1       2   3.0000e+00   2.0000e+00   3.0000e+00  -2.1373e-94
+      0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+9300000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
+
+Loops: 100000, Iterations: 1, Duration: 0.632 sec.
+C Converted Double Precision Whetstones: 15826 MIPS
+0.63user 0.00system 0:00.63elapsed 100%CPU (0avgtext+0avgdata 4308maxresident)k
+0inputs+24outputs (0major+161minor)pagefaults 0swaps
+--- Profiling whetstone_ku_3 with perf ---
+      0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+1200000 1400000 1200000   2.9797e-32  -3.7671e-32   2.9784e-32  -3.7682e-32
+1400000 1200000 1200000   5.5551e-95  -6.9990e-95  -8.8181e-95  -2.1373e-94
+34500000       1       1   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+21000000       1       2   6.0000e+00   6.0000e+00  -8.8181e-95  -2.1373e-94
+3200000       1       2   1.4592e-70   1.4592e-70   1.4592e-70   1.4592e-70
+89900000       1       2   1.0000e+00   1.0000e+00   9.9994e-01   9.9994e-01
+61600000       1       2   3.0000e+00   2.0000e+00   3.0000e+00  -2.1373e-94
+      0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+9300000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
+
+Loops: 100000, Iterations: 1, Duration: 0.636 sec.
+C Converted Double Precision Whetstones: 15728 MIPS
+--- Generating short perf report for whetstone_ku_3 ---
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 2K of event 'cycles:Pu'
+# Event count (approx.): 3332513612
+#
+# Overhead  Command         Shared Object         Symbol                         
+# ........  ..............  ....................  ...............................
+
+--- Building whetstone_ku_4 with flags: -O2 -DPRINTOUT -fprofile-arcs -ftest-coverage -fno-inline ---
+--- Running whetstone_ku_4 (normal run) ---
+      0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+1200000 1400000 1200000   2.9797e-32  -3.7671e-32   2.9784e-32  -3.7682e-32
+1400000 1200000 1200000   5.5551e-95  -6.9990e-95  -8.8181e-95  -2.1373e-94
+34500000       1       1   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+21000000       1       2   6.0000e+00   6.0000e+00  -8.8181e-95  -2.1373e-94
+3200000       1       2   1.4592e-70   1.4592e-70   1.4592e-70   1.4592e-70
+89900000       1       2   1.0000e+00   1.0000e+00   9.9994e-01   9.9994e-01
+61600000       1       2   3.0000e+00   2.0000e+00   3.0000e+00  -2.1373e-94
+      0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+9300000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
+
+Loops: 100000, Iterations: 1, Duration: 0.649 sec.
+C Converted Double Precision Whetstones: 15408 MIPS
+0.64user 0.00system 0:00.64elapsed 99%CPU (0avgtext+0avgdata 4308maxresident)k
+0inputs+16outputs (0major+160minor)pagefaults 0swaps
+--- Profiling whetstone_ku_4 with perf ---
+      0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+1200000 1400000 1200000   2.9797e-32  -3.7671e-32   2.9784e-32  -3.7682e-32
+1400000 1200000 1200000   5.5551e-95  -6.9990e-95  -8.8181e-95  -2.1373e-94
+34500000       1       1   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+21000000       1       2   6.0000e+00   6.0000e+00  -8.8181e-95  -2.1373e-94
+3200000       1       2   1.4592e-70   1.4592e-70   1.4592e-70   1.4592e-70
+89900000       1       2   1.0000e+00   1.0000e+00   9.9994e-01   9.9994e-01
+61600000       1       2   3.0000e+00   2.0000e+00   3.0000e+00  -2.1373e-94
+      0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+9300000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
+
+Loops: 100000, Iterations: 1, Duration: 0.652 sec.
+C Converted Double Precision Whetstones: 15332 MIPS
+--- Generating short perf report for whetstone_ku_4 ---
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 2K of event 'cycles:Pu'
+# Event count (approx.): 3416024624
+#
+# Overhead  Command         Shared Object         Symbol                          
+# ........  ..............  ....................  ................................
+
+--- Building whetstone_ku_5 with flags: -O2 -DPRINTOUT -fprofile-arcs -ftest-coverage -fno-inline -pg ---
+--- Running whetstone_ku_5 (normal run) ---
+      0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+1200000 1400000 1200000   2.9797e-32  -3.7671e-32   2.9784e-32  -3.7682e-32
+1400000 1200000 1200000   5.5551e-95  -6.9990e-95  -8.8181e-95  -2.1373e-94
+34500000       1       1   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+21000000       1       2   6.0000e+00   6.0000e+00  -8.8181e-95  -2.1373e-94
+3200000       1       2   1.4592e-70   1.4592e-70   1.4592e-70   1.4592e-70
+89900000       1       2   1.0000e+00   1.0000e+00   9.9994e-01   9.9994e-01
+61600000       1       2   3.0000e+00   2.0000e+00   3.0000e+00  -2.1373e-94
+      0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+9300000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
+
+Loops: 100000, Iterations: 1, Duration: 1.308 sec.
+C Converted Double Precision Whetstones: 7645 MIPS
+1.30user 0.00system 0:01.30elapsed 99%CPU (0avgtext+0avgdata 4384maxresident)k
+0inputs+40outputs (0major+169minor)pagefaults 0swaps
+--- Profiling whetstone_ku_5 with perf ---
+      0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+1200000 1400000 1200000   2.9797e-32  -3.7671e-32   2.9784e-32  -3.7682e-32
+1400000 1200000 1200000   5.5551e-95  -6.9990e-95  -8.8181e-95  -2.1373e-94
+34500000       1       1   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+21000000       1       2   6.0000e+00   6.0000e+00  -8.8181e-95  -2.1373e-94
+3200000       1       2   1.4592e-70   1.4592e-70   1.4592e-70   1.4592e-70
+89900000       1       2   1.0000e+00   1.0000e+00   9.9994e-01   9.9994e-01
+61600000       1       2   3.0000e+00   2.0000e+00   3.0000e+00  -2.1373e-94
+      0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+9300000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
+
+Loops: 100000, Iterations: 1, Duration: 1.315 sec.
+C Converted Double Precision Whetstones: 7605 MIPS
+--- Generating short perf report for whetstone_ku_5 ---
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 5K of event 'cycles:Pu'
+# Event count (approx.): 6893927698
+#
+# Overhead  Command         Shared Object         Symbol                          
+# ........  ..............  ....................  ................................
+
+--- Building whetstone_ku_6 with flags: -O2 -DPRINTOUT -fprofile-arcs -ftest-coverage -fno-inline -pg -g ---
+--- Running whetstone_ku_6 (normal run) ---
+      0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+1200000 1400000 1200000   2.9797e-32  -3.7671e-32   2.9784e-32  -3.7682e-32
+1400000 1200000 1200000   5.5551e-95  -6.9990e-95  -8.8181e-95  -2.1373e-94
+34500000       1       1   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+21000000       1       2   6.0000e+00   6.0000e+00  -8.8181e-95  -2.1373e-94
+3200000       1       2   1.4592e-70   1.4592e-70   1.4592e-70   1.4592e-70
+89900000       1       2   1.0000e+00   1.0000e+00   9.9994e-01   9.9994e-01
+61600000       1       2   3.0000e+00   2.0000e+00   3.0000e+00  -2.1373e-94
+      0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+9300000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
+
+Loops: 100000, Iterations: 1, Duration: 1.309 sec.
+C Converted Double Precision Whetstones: 7638 MIPS
+1.30user 0.00system 0:01.30elapsed 99%CPU (0avgtext+0avgdata 4376maxresident)k
+0inputs+40outputs (0major+167minor)pagefaults 0swaps
+--- Profiling whetstone_ku_6 with perf ---
+      0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+1200000 1400000 1200000   2.9797e-32  -3.7671e-32   2.9784e-32  -3.7682e-32
+1400000 1200000 1200000   5.5551e-95  -6.9990e-95  -8.8181e-95  -2.1373e-94
+34500000       1       1   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+21000000       1       2   6.0000e+00   6.0000e+00  -8.8181e-95  -2.1373e-94
+3200000       1       2   1.4592e-70   1.4592e-70   1.4592e-70   1.4592e-70
+89900000       1       2   1.0000e+00   1.0000e+00   9.9994e-01   9.9994e-01
+61600000       1       2   3.0000e+00   2.0000e+00   3.0000e+00  -2.1373e-94
+      0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+9300000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
+
+Loops: 100000, Iterations: 1, Duration: 1.319 sec.
+C Converted Double Precision Whetstones: 7581 MIPS
+--- Generating short perf report for whetstone_ku_6 ---
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 5K of event 'cycles:Pu'
+# Event count (approx.): 6911895325
+#
+# Overhead  Command         Shared Object         Symbol                         
+# ........  ..............  ....................  ...............................
+
+===== Generating detailed perf report for whetstone_ku_6 =====
+      0       0       0   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+1200000 1400000 1200000   2.9797e-32  -3.7671e-32   2.9784e-32  -3.7682e-32
+1400000 1200000 1200000   5.5551e-95  -6.9990e-95  -8.8181e-95  -2.1373e-94
+34500000       1       1   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+21000000       1       2   6.0000e+00   6.0000e+00  -8.8181e-95  -2.1373e-94
+3200000       1       2   1.4592e-70   1.4592e-70   1.4592e-70   1.4592e-70
+89900000       1       2   1.0000e+00   1.0000e+00   9.9994e-01   9.9994e-01
+61600000       1       2   3.0000e+00   2.0000e+00   3.0000e+00  -2.1373e-94
+      0       2       3   1.0000e+00  -1.0000e+00  -1.0000e+00  -1.0000e+00
+9300000       2       3   1.0000e+00   1.0000e+00   1.0000e+00   1.0000e+00
+
+Loops: 100000, Iterations: 1, Duration: 1.315 sec.
+C Converted Double Precision Whetstones: 7604 MIPS
+--- Summary report ---
+--- Source-annotated report ---
+
+Reports generated:
+  perf_summary.txt
+  perf_source_report.txt
+
+===== Done =====
