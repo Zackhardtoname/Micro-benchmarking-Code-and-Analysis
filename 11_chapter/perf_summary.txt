@@ -3,227 +3,331 @@
 #
 # Total Lost Samples: 0
 #
-# Samples: 53K of event 'cycles:Pu'
-# Event count (approx.): 70504342263
+# Samples: 70K of event 'cycles:Pu'
+# Event count (approx.): 92064318412
 #
-# Children      Self  Command         Shared Object         Symbol                                                    
-# ........  ........  ..............  ....................  ..........................................................
+# Children      Self  Command          Shared Object                   Symbol                              
+# ........  ........  ...............  ..............................  ....................................
 #
-   100.00%     0.00%  whetstone_ku_6  whetstone_ku_6        [.] _start
+    99.95%     0.00%  whetstone_ku_6_  whetstone_ku_6_debug            [.] _start
             |
             ---_start
                __libc_start_main@@GLIBC_2.34
                __libc_start_call_main
                |          
-               |--94.09%--main
+               |--92.93%--main
                |          |          
-               |          |--39.55%--P3(double, double, double*)
+               |          |--35.19%--P3(double, double, double*)
                |          |          
-               |          |--27.80%--P0()
+               |          |--22.13%--P0()
                |          |          
-               |          |--7.07%--PA(double*)
+               |          |--11.23%--PA(double*)
                |          |          
-               |          |--4.80%--__ieee754_exp_fma
+               |          |--5.52%--__cos_fma
                |          |          
-               |          |--4.74%--__cos_fma
+               |          |--4.09%--__ieee754_exp_fma
                |          |          
-               |          |--2.27%--__sincos_fma
+               |          |--3.62%--__atan_fma
                |          |          
-               |          |--1.78%--__atan_fma
-               |          |          
-               |           --0.72%--exp@@GLIBC_2.29
+               |           --1.23%--__sin_fma
                |          
-                --5.07%--__ieee754_log_fma
+               |--2.39%--__ieee754_log_fma
+               |          
+               |--2.00%--__sqrt_finite
+               |          
+               |--1.37%--log@@GLIBC_2.29
+               |          
+                --0.84%--__sqrt
 
-   100.00%     0.00%  whetstone_ku_6  libc.so.6             [.] __libc_start_main@@GLIBC_2.34
+    99.95%     0.00%  whetstone_ku_6_  libc.so.6                       [.] __libc_start_main@@GLIBC_2.34
             |
             ---__libc_start_main@@GLIBC_2.34
                __libc_start_call_main
                |          
-               |--94.09%--main
+               |--92.93%--main
                |          |          
-               |          |--39.55%--P3(double, double, double*)
+               |          |--35.19%--P3(double, double, double*)
                |          |          
-               |          |--27.80%--P0()
+               |          |--22.13%--P0()
                |          |          
-               |          |--7.07%--PA(double*)
+               |          |--11.23%--PA(double*)
                |          |          
-               |          |--4.80%--__ieee754_exp_fma
+               |          |--5.52%--__cos_fma
                |          |          
-               |          |--4.74%--__cos_fma
+               |          |--4.09%--__ieee754_exp_fma
                |          |          
-               |          |--2.27%--__sincos_fma
+               |          |--3.62%--__atan_fma
                |          |          
-               |          |--1.78%--__atan_fma
-               |          |          
-               |           --0.72%--exp@@GLIBC_2.29
+               |           --1.23%--__sin_fma
                |          
-                --5.07%--__ieee754_log_fma
+               |--2.39%--__ieee754_log_fma
+               |          
+               |--2.00%--__sqrt_finite
+               |          
+               |--1.37%--log@@GLIBC_2.29
+               |          
+                --0.84%--__sqrt
 
-   100.00%     0.00%  whetstone_ku_6  libc.so.6             [.] __libc_start_call_main
+    99.95%     0.00%  whetstone_ku_6_  libc.so.6                       [.] __libc_start_call_main
             |
             ---__libc_start_call_main
                |          
-               |--94.09%--main
+               |--92.93%--main
                |          |          
-               |          |--39.55%--P3(double, double, double*)
+               |          |--35.19%--P3(double, double, double*)
                |          |          
-               |          |--27.80%--P0()
+               |          |--22.13%--P0()
                |          |          
-               |          |--7.07%--PA(double*)
+               |          |--11.23%--PA(double*)
                |          |          
-               |          |--4.80%--__ieee754_exp_fma
+               |          |--5.52%--__cos_fma
                |          |          
-               |          |--4.74%--__cos_fma
+               |          |--4.09%--__ieee754_exp_fma
                |          |          
-               |          |--2.27%--__sincos_fma
+               |          |--3.62%--__atan_fma
                |          |          
-               |          |--1.78%--__atan_fma
-               |          |          
-               |           --0.72%--exp@@GLIBC_2.29
+               |           --1.23%--__sin_fma
                |          
-                --5.07%--__ieee754_log_fma
+               |--2.39%--__ieee754_log_fma
+               |          
+               |--2.00%--__sqrt_finite
+               |          
+               |--1.37%--log@@GLIBC_2.29
+               |          
+                --0.84%--__sqrt
 
-    94.09%     5.09%  whetstone_ku_6  whetstone_ku_6        [.] main
+    92.93%     9.16%  whetstone_ku_6_  whetstone_ku_6_debug            [.] main
             |          
-            |--89.00%--main
+            |--83.76%--main
             |          |          
-            |          |--39.55%--P3(double, double, double*)
+            |          |--35.19%--P3(double, double, double*)
             |          |          
-            |          |--27.80%--P0()
+            |          |--22.13%--P0()
             |          |          
-            |          |--7.07%--PA(double*)
+            |          |--11.23%--PA(double*)
             |          |          
-            |          |--4.80%--__ieee754_exp_fma
+            |          |--5.52%--__cos_fma
             |          |          
-            |          |--4.74%--__cos_fma
+            |          |--4.09%--__ieee754_exp_fma
             |          |          
-            |          |--2.27%--__sincos_fma
+            |          |--3.62%--__atan_fma
             |          |          
-            |          |--1.78%--__atan_fma
-            |          |          
-            |           --0.72%--exp@@GLIBC_2.29
+            |           --1.23%--__sin_fma
             |          
-             --5.09%--_start
+             --9.16%--_start
                        __libc_start_main@@GLIBC_2.34
                        __libc_start_call_main
                        main
 
-    39.55%    39.54%  whetstone_ku_6  whetstone_ku_6        [.] P3(double, double, double*)
+    35.19%    35.18%  whetstone_ku_6_  whetstone_ku_6_debug            [.] P3(double, double, double*)
             |          
-             --39.54%--_start
+             --35.18%--_start
                        __libc_start_main@@GLIBC_2.34
                        __libc_start_call_main
                        |          
-                        --39.54%--main
+                        --35.18%--main
                                   P3(double, double, double*)
 
-    27.80%    27.80%  whetstone_ku_6  whetstone_ku_6        [.] P0()
-            |          
-             --27.80%--_start
-                       __libc_start_main@@GLIBC_2.34
-                       __libc_start_call_main
-                       main
-                       P0()
-
-     7.10%     7.10%  whetstone_ku_6  whetstone_ku_6        [.] PA(double*)
-            |          
-             --7.10%--_start
-                       __libc_start_main@@GLIBC_2.34
-                       __libc_start_call_main
-                       |          
-                        --7.07%--main
-                                  PA(double*)
-
-     5.07%     5.07%  whetstone_ku_6  libm.so.6             [.] __ieee754_log_fma
-            |
-            ---_start
-               __libc_start_main@@GLIBC_2.34
-               __libc_start_call_main
-               __ieee754_log_fma
-
-     4.87%     4.87%  whetstone_ku_6  libm.so.6             [.] __cos_fma
-            |
-            ---_start
-               __libc_start_main@@GLIBC_2.34
-               __libc_start_call_main
-               |          
-                --4.74%--main
-                          __cos_fma
-
-     4.80%     4.80%  whetstone_ku_6  libm.so.6             [.] __ieee754_exp_fma
+    22.13%    22.13%  whetstone_ku_6_  whetstone_ku_6_debug            [.] P0()
             |
             ---_start
                __libc_start_main@@GLIBC_2.34
                __libc_start_call_main
                main
-               __ieee754_exp_fma
+               P0()
 
-     2.40%     2.40%  whetstone_ku_6  libm.so.6             [.] __sincos_fma
+    11.26%    11.26%  whetstone_ku_6_  whetstone_ku_6_debug            [.] PA(double*)
+            |          
+             --11.26%--_start
+                       __libc_start_main@@GLIBC_2.34
+                       __libc_start_call_main
+                       |          
+                        --11.23%--main
+                                  PA(double*)
+
+     5.63%     5.63%  whetstone_ku_6_  libm.so.6                       [.] __cos_fma
             |
             ---_start
                __libc_start_main@@GLIBC_2.34
                __libc_start_call_main
                |          
-                --2.27%--main
-                          __sincos_fma
+                --5.52%--main
+                          __cos_fma
 
-     1.85%     1.85%  whetstone_ku_6  libm.so.6             [.] __atan_fma
+     4.09%     4.09%  whetstone_ku_6_  libm.so.6                       [.] __ieee754_exp_fma
+            |          
+             --4.09%--_start
+                       __libc_start_main@@GLIBC_2.34
+                       __libc_start_call_main
+                       main
+                       __ieee754_exp_fma
+
+     3.76%     3.76%  whetstone_ku_6_  libm.so.6                       [.] __atan_fma
             |
             ---_start
                __libc_start_main@@GLIBC_2.34
                __libc_start_call_main
                |          
-                --1.78%--main
+                --3.62%--main
                           __atan_fma
 
-     0.79%     0.79%  whetstone_ku_6  libm.so.6             [.] exp@@GLIBC_2.29
+     2.39%     2.39%  whetstone_ku_6_  libm.so.6                       [.] __ieee754_log_fma
+            |          
+             --2.39%--_start
+                       __libc_start_main@@GLIBC_2.34
+                       __libc_start_call_main
+                       __ieee754_log_fma
+
+     2.00%     1.99%  whetstone_ku_6_  libm.so.6                       [.] __sqrt_finite
+            |          
+             --1.99%--_start
+                       __libc_start_main@@GLIBC_2.34
+                       __libc_start_call_main
+                       __sqrt_finite
+
+     1.37%     1.37%  whetstone_ku_6_  libm.so.6                       [.] log@@GLIBC_2.29
+            |
+            ---_start
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               log@@GLIBC_2.29
+
+     1.24%     1.24%  whetstone_ku_6_  libm.so.6                       [.] __sin_fma
             |
             ---_start
                __libc_start_main@@GLIBC_2.34
                __libc_start_call_main
                |          
-                --0.72%--main
-                          exp@@GLIBC_2.29
+                --1.23%--main
+                          __sin_fma
 
-     0.20%     0.20%  whetstone_ku_6  libm.so.6             [.] log@@GLIBC_2.29
-     0.19%     0.14%  whetstone_ku_6  libc.so.6             [.] __mcount_internal
-     0.16%     0.16%  whetstone_ku_6  whetstone_ku_6        [.] cos@plt
-     0.08%     0.07%  whetstone_ku_6  libc.so.6             [.] _mcount
-     0.05%     0.05%  whetstone_ku_6  whetstone_ku_6        [.] sincos@plt
-     0.03%     0.03%  whetstone_ku_6  [unknown]             [k] 0xffffffffb2c015f0
-     0.02%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb2c0160a
-     0.02%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb4130608
-     0.02%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb2f64eb5
-     0.02%     0.02%  whetstone_ku_6  [unknown]             [k] 0xffffffffb30cdf81
-     0.01%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb30cdfc3
-     0.00%     0.00%  whetstone_ku_6  whetstone_ku_6        [.] atan@plt
-     0.00%     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb30665c3
-     0.00%     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb30665e2
-     0.00%     0.00%  whetstone_ku_6  libc.so.6             [.] __printf_fp_buffer_1.isra.0
-     0.00%     0.00%  whetstone_ku_6  whetstone_ku_6        [.] POUT(long, long, long, double, double, double, double)
-     0.00%     0.00%  whetstone_ku_6  libc.so.6             [.] printf
-     0.00%     0.00%  whetstone_ku_6  libc.so.6             [.] __vfprintf_internal
-     0.00%     0.00%  whetstone_ku_6  libc.so.6             [.] __printf_buffer
-     0.00%     0.00%  whetstone_ku_6  libc.so.6             [.] __printf_fp_l_buffer
-     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_start
-     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_start_user
-     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_sysdep_start
-     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_lookup_symbol_x
-     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] dl_main
-     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_relocate_object
-     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _dl_relocate_object_no_relro
-     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] handle_amd
-     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] init_cpu_features.constprop.0
-     0.00%     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb32e9641
-     0.00%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb2c012a6
-     0.00%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb4131044
-     0.00%     0.00%  whetstone_ku_6  [unknown]             [.] 0xffffffffb2f87a99
-     0.00%     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb2c01280
-     0.00%     0.00%  whetstone_ku_6  [unknown]             [k] 0xffffffffb2c01630
-     0.00%     0.00%  whetstone_ku_6  ld-linux-x86-64.so.2  [.] _start
+     0.84%     0.84%  whetstone_ku_6_  libm.so.6                       [.] __sqrt
+            |
+            ---_start
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+               __sqrt
+
+     0.60%     0.60%  whetstone_ku_6_  libm.so.6                       [.] exp@@GLIBC_2.29
+            |
+            ---_start
+               __libc_start_main@@GLIBC_2.34
+               __libc_start_call_main
+
+     0.14%     0.14%  whetstone_ku_6_  libc.so.6                       [.] __mcount_internal
+     0.12%     0.12%  whetstone_ku_6_  libc.so.6                       [.] _mcount
+     0.03%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_catch_exception
+     0.03%     0.00%  whetstone_ku_6_  libc.so.6                       [.] _dlerror_run
+     0.03%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_catch_error
+     0.03%     0.00%  whetstone_ku_6_  libc.so.6                       [.] dlopen@GLIBC_2.2.5
+     0.03%     0.00%  whetstone_ku_6_  libc.so.6                       [.] dlopen_doit
+     0.03%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_open
+     0.03%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] dl_open_worker
+     0.02%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_relocate_object_no_relro
+     0.02%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_relocate_object
+     0.02%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] dl_open_worker_begin
+     0.02%     0.00%  whetstone_ku_6_  libnxegl.so                     [.] nxeglFunctionsInit
+     0.02%     0.00%  whetstone_ku_6_  libEGL.so.1.1.0                 [.] eglGetProcAddress
+     0.02%     0.00%  whetstone_ku_6_  libc.so.6                       [.] pthread_once@GLIBC_2.2.5
+     0.02%     0.00%  whetstone_ku_6_  libc.so.6                       [.] __pthread_once_slow.isra.0
+     0.02%     0.00%  whetstone_ku_6_  libEGL.so.1.1.0                 [.] LoadVendors
+     0.02%     0.00%  whetstone_ku_6_  libEGL.so.1.1.0                 [.] LoadVendorFromConfigFile.isra.0
+     0.02%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_lookup_symbol_x
+     0.02%     0.02%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] do_lookup_x
+     0.02%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0xffffffffbb60160a
+     0.02%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0xffffffffbcb30608
+     0.02%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0xffffffffbb964eb5
+     0.02%     0.02%  whetstone_ku_6_  [unknown]                       [k] 0xffffffffbb6015f0
+     0.01%     0.01%  whetstone_ku_6_  [unknown]                       [k] 0xffffffffbbacdf74
+     0.01%     0.01%  whetstone_ku_6_  whetstone_ku_6_debug            [.] sqrt@plt
+     0.01%     0.01%  whetstone_ku_6_  libnvidia-eglcore.so.580.82.09  [.] 0x0000000000a1c8da
+     0.01%     0.00%  whetstone_ku_6_  libnvidia-eglcore.so.580.82.09  [.] 0x00007f4fba61c8da
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0x000000000f1f5b20
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0000000000000000
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0x000000000f27b910
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_start_user
+     0.00%     0.00%  whetstone_ku_6_  whetstone_ku_6_debug            [.] cos@plt
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [k] 0xffffffffbbacdf81
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [k] 0x726f636c67652d61
+     0.00%     0.00%  whetstone_ku_6_  libEGL_nvidia.so.580.82.09      [.] 0x00007f4fbbf36abe
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0xffffffffbb6012a6
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0xffffffffbcb31044
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0xffffffffbb987a99
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0xffffffffbbce95b6
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_init
+     0.00%     0.00%  whetstone_ku_6_  libnvidia-eglcore.so.580.82.09  [.] 0x0000000000a1c8cf
+     0.00%     0.00%  whetstone_ku_6_  libnvidia-eglcore.so.580.82.09  [.] 0x00007f4fba61c8cf
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_start
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_sysdep_start
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] dl_main
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_map_object_deps
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_map_object
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] openaux
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] strcmp
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [k] 0xffffffffbcb03f45
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_map_object_from_fd
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [k] 0xffffffffbcb2e653
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0xffffffffbcb30600
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0xffffffffbba438ec
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0xffffffffbba597bb
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0xffffffffbb92d460
+     0.00%     0.00%  whetstone_ku_6_  libnvidia-gpucomp.so.580.82.09  [.] 0x00000000009d5143
+     0.00%     0.00%  whetstone_ku_6_  libnvidia-gpucomp.so.580.82.09  [.] 0x00007f4fb5fd5143
+     0.00%     0.00%  whetstone_ku_6_  libnvidia-eglcore.so.580.82.09  [.] 0x0000000000d7eed7
+     0.00%     0.00%  whetstone_ku_6_  libnvidia-eglcore.so.580.82.09  [.] 0x00007f4fba97eed7
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] __cxa_finalize
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] 0x00007f4fbc22a8fe
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] __run_exit_handlers
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_fini
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_call_fini
+     0.00%     0.00%  whetstone_ku_6_  libedit.so.0.0.75               [.] __do_global_dtors_aux
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] __printf_buffer_write
+     0.00%     0.00%  whetstone_ku_6_  libnvidia-eglcore.so.580.82.09  [.] 0x00007f4fba60f014
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] sprintf
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] __vsprintf_internal
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] __printf_buffer
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] __internal_atexit
+     0.00%     0.00%  whetstone_ku_6_  libLLVM.so.20.1                 [.] _GLOBAL__sub_I_GlobalsModRef.cpp
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] __memcmp_evex_movbe
+     0.00%     0.00%  whetstone_ku_6_  libEGL_nvidia.so.580.82.09      [.] 0x00007f4fbbf23ba1
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] _dl_addr
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0x0000000000006f73
+     0.00%     0.00%  whetstone_ku_6_  libnvidia-eglcore.so.580.82.09  [.] 0x00007f4fba60b962
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] __strcmp_evex
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [k] 0xffffffffbcb03fc9
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0x000000000f2a3ac0
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0x000000000f29a6e0
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] call_init
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0x000000000f28ce00
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0x000000007365726f
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] __strlen_evex
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0xec81485355544155
+     0.00%     0.00%  whetstone_ku_6_  libnvidia-gpucomp.so.580.82.09  [.] 0x00007f4fb78aa7e0
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0x0000000000000212
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0x000000000f275f60
+     0.00%     0.00%  whetstone_ku_6_  libnvidia-gpucomp.so.580.82.09  [.] 0x0000000000a17920
+     0.00%     0.00%  whetstone_ku_6_  libnvidia-gpucomp.so.580.82.09  [.] 0x00007f4fb6017920
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0x000000000f26cb80
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0x000000000f25a8a0
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] _int_malloc
+     0.00%     0.00%  whetstone_ku_6_  libnvidia-eglcore.so.580.82.09  [.] 0x00007f4fba610725
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] malloc
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0x000000000f2639a0
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _dl_runtime_resolve_xsavec
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] __GI___tunables_init
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [k] 0xffffffffbb601c61
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [.] 0xffffffffbb60163f
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] dlsym@@GLIBC_2.34
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] dlsym_doit
+     0.00%     0.00%  whetstone_ku_6_  libc.so.6                       [.] do_sym
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] check_match
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [k] 0xffffffffbb601287
+     0.00%     0.00%  whetstone_ku_6_  libm.so.6                       [.] __log_finite@plt
+     0.00%     0.00%  whetstone_ku_6_  [unknown]                       [k] 0xffffffffbb601280
+     0.00%     0.00%  whetstone_ku_6_  ld-linux-x86-64.so.2            [.] _start
+     0.00%     0.00%  whetstone_ku_6_  libm.so.6                       [.] __exp_finite@plt
 
 
 #
-# (Tip: Show user configuration overrides: perf config --user --list)
+# (Tip: System-wide collection from all CPUs: perf record -a)
 #

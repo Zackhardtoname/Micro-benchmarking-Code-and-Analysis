@@ -127,4 +127,8 @@ sys	0m30.433s
 The runtime extension is tiny and negligable when the runtime is large.
 
 ## 11.3 Run the Whetstone benchmark after compiling it with incrementally more of the suggested oprofile compilation flags, detailed just before Code Snippet 11.5. Which one(s) produce a substantially slower runtime?
+-fprofile-arcs has increased the runtime by about 1.7 seconds out of 5.
+-pg doubles the time to 13 seconds.
+I don't see a notable difference between running the program compiled with flags directly versus with perf.
+I had difficulty getting the perf report to show the source code. Not sure if it's working. Previously I have only used CLion which works great.
 

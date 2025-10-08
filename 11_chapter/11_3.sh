@@ -35,19 +35,31 @@ for i in $(seq 0 ${#EXTRA_FLAGS[@]}); do
     echo "--- Profiling $EXE with perf ---"
     PERF_DATA="perf_data_$i.data"
     rm -f "$PERF_DATA"
-    perf record -o "$PERF_DATA" -q ./$CMD
+    perf record -o "$PERF_DATA" -q -g ./$CMD
 
     echo "--- Generating short perf report for $EXE ---"
     perf report -i "$PERF_DATA" --stdio | head -n 10
 done
 
-# For the last executable, produce detailed annotated report
+# ===== Final executable with -O0 -g for source-level annotation =====
 FINAL_ID=${#EXTRA_FLAGS[@]}
-FINAL_EXE="${OUT_BASE}_${FINAL_ID}"
-FINAL_CMD="${OUT_BASE}_${FINAL_ID} ${ARG}"
+FINAL_EXE="${OUT_BASE}_${FINAL_ID}_debug"
+FINAL_CMD="$FINAL_EXE $ARG"
 FINAL_DATA="perf_data_final.data"
 
-echo -e "\n===== Generating detailed perf report for $FINAL_EXE ====="
+# Build final executable with debug info and no optimization
+FINAL_FLAGS="-O0"
+for f in "${EXTRA_FLAGS[@]}"; do
+    FINAL_FLAGS="$FINAL_FLAGS $f"
+done
+
+echo -e "\n--- Building final executable $FINAL_EXE with flags: $FINAL_FLAGS ---"
+g++ -I ../book_files $FINAL_FLAGS $SRC_C $SRC_CC -lm -g -O0 -o $FINAL_EXE
+
+echo "--- Running final executable (normal run) ---"
+/usr/bin/time ./$FINAL_CMD
+
+echo "--- Profiling final executable with perf ---"
 rm -f "$FINAL_DATA"
 perf record -o "$FINAL_DATA" -q -g ./$FINAL_CMD
 
@@ -55,11 +67,11 @@ echo "--- Generating summary report ---"
 perf report -i "$FINAL_DATA" --stdio > perf_summary.txt
 
 echo "--- Generating source-annotated report ---"
-perf annotate -i "$FINAL_DATA" --source --stdio > perf_source_report.txt
+perf annotate -i "$FINAL_DATA" --source --stdio -l --full-paths \
+  > perf_source_report.txt
 
 echo -e "\nReports generated:"
 echo "  perf_summary.txt"
-echo "  perf_source_report.txt"
+echo "  perf_source_report.txt (source lines with perf annotate)"
 
 echo -e "\n===== Done ====="
-
