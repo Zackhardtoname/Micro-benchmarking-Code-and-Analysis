@@ -40,7 +40,7 @@ For my SSD, the intermediate number of blocks between the vertical lines varies.
 For me, the gap between vertical lines is about 40 usec at first, and then decreases to something like 20 usec toward the end. The delay is probably the disk head swirving around to the next section/track.
 
 ## 5.2 Extra credit: If some groups are one block shorter than others, why?
-My groups vary quick dramatically across each other. Once again, it's just SSD being different from the HDD the book primarily analyzes.
+My groups vary quite dramatically across each other. Once again, it's just SSD being different from the HDD the book primarily analyzes.
 
 zanesterling: "The physical track length might not be evenly divisible by 4KiB, putting the roundoff in one or the other of the tracks. Alternatively there might be a couple preserved blocks per cylinder for bad block detection. Or maybe some of those "missing" blocks are actually bad blocks that have been skipped!"
 
@@ -97,7 +97,7 @@ Comment briefly on what you think is happening.
 
 The pattern is a lot more clean being just straight lines only.
 Number of unique time values: 81
-I think the perhaps the SSD loads and empties the buffer containg multiple blocks, all together for 81 times.
+I think the perhaps the SSD loads and empties the buffer containg multiple blocks, all together for 81 times. Or batching at the O.S. level.
 
 ## 5.11 Finally, re-run on an SSD and look at the SSD write timings and comment briefly on
 what you think is happening. Use your order-of-magnitude knowledge to compare various
