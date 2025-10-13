@@ -177,8 +177,8 @@
 // Remap Misses L1/L2/L3     524288     524288     517579
 // 
 
-#define TRACK_CACHES 1
-#define HASHED_L3 1
+#define TRACK_CACHES 0
+#define HASHED_L3 0
 
 static const int kRowsize = 1024;
 static const int kColsize = kRowsize;
@@ -807,6 +807,7 @@ void BlockMultiplyRemap(const double* a, const double* b, double* c) {
   RemapAll(a, aa);
   RemapAll(b, bb);
 #if 1
+  #pragma omp parallel for collapse(2) schedule(dynamic)
   for (int row = 0; row < kRowsize; row += kRemapsize) {
     for (int col = 0; col < kColsize; col += kRemapsize) {
       // cc block starts at row * kRowsize + col * kRemapsize
@@ -857,6 +858,7 @@ L3((uint64)&c[row * kRowsize + col]);
 // Transpose second input array to be in column-major order
 void SimpleMultiplyTransposeFast(const double* a, const double* b, double* c) {
   BlockTransposeAll(b, bb);
+  #pragma omp parallel for collapse(2) schedule(dynamic)
   for (int row = 0; row < kRowsize; ++row) {
     for (int col = 0; col < kColsize; ++col) {
       c[row * kRowsize + col] = VectorSum4(&a[row * kRowsize + 0], 
