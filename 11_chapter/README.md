@@ -131,4 +131,3 @@ The runtime extension is tiny and negligable when the runtime is large.
 -pg doubles the time to 13 seconds.
 I don't see a notable difference between running the program compiled with flags directly versus with perf.
 I had difficulty getting the perf report to show the source code. Not sure if it's working. Previously I have only used CLion which works great.
-

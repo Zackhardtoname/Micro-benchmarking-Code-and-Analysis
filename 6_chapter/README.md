@@ -166,6 +166,6 @@ Send response back: 10 ms
 
 ### Discussion
 The graph is impossible to read.
-*After alignment*: I got the same results for send time.
+*After alignment*: I got the same results as the send back time from 6.2 for send time.
 Process time estimation is wrong. I think it is because of CPU/RAM caching.
 send back time is matching our expectations.

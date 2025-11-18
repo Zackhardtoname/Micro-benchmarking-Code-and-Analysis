@@ -58,7 +58,7 @@ Using -fno-tree-reassoc.
 <span style="color:red">Floating point number division is faster than integer division because of the exponent part in floating point number representation. Division of exponent parts of floating point number value representations requires only a relatively cheap fixed-cost subtraction. int32_t division requires fast division of 31-bit numbers, whereas float division requires fast division of 24-bit mantissas (the leading one in mantissa is implied and not stored in a floating point number) and faster subtraction of 8-bit exponents.</span>.
 
 ![test](https://scaler.com/topics/images/pictorial-representation-of-double-in-c.webp)
-But why is double less than half the number of cycles for integer division if the numbers of fraction bits is 52?
+TODO But why is double less than half the number of cycles for integer division if the numbers of fraction bits is 52?
 
 ---
 64-bit Multiplication
@@ -174,7 +174,7 @@ int main (int argc, const char** argv) {
 
 # 2.9
 The time increases for floating division underflow from 10 to 100 to 140. However, I don't see any difference for multiplication even after the display becomes inf.
-But why?
+TODO But why?
 
 ```C
 #include <stdint.h>
