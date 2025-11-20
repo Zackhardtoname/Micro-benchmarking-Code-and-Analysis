@@ -25,7 +25,7 @@ Go into each chapter for code and analyses.
 ## RAM (chapter 3)
 * cache line size: 64 bytes
 * L1 data cache: 48 KB per core
-* L1 inst cache: 32 KB per core (TODO run lscpu to verify)
+* L1 inst cache: 32 KB per core
 * L2 cache: 1 MB
 * L3 cache: 96 MiB
 
