@@ -7,6 +7,7 @@ Go into each chapter for code and analyses.
 * MAG X870E TOMAHAWK WIFI motherboard 
     * M.2_1, a PCIe 5.0x4 lane, for SSD
     * 1x Realtek® 8126 5Gbps LAN controller
+    * ""The Realtek 8169 chip is one the of crappier, lowest budget chips you can find."
 * AMD Ryzen 7 9800X3D 8-Core
 * Flare X5 DDR5-6000 CL30-40-40-96 1.40V 64GB (2x32GB) AMD EXPO
 * WD_BLACK™ SN850X NVMe™ SSD M.2 2280 NVMe™ SSD
@@ -57,6 +58,7 @@ official specs
 * random write: 1100 K IOPS
 
 initial delay of about 210 us
+Could this be related to the default receive interrupt delay of 200 usec in chapter 6? TODO https://chatgpt.com/share/691ea11f-21f8-8007-97c9-655abe5145c0
 
 ## networking (chapter 6)
 weighed process speed is about 5/8 * 2/6.5 + (102770+40000) / 2 / 1024 * 4/6.5 = 48 GiB/s
