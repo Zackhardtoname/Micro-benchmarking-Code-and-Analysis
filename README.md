@@ -4,6 +4,7 @@ Go into each chapter for code and analyses.
 
 # Quick Results
 ## hardware
+* [All parts on pcparkpicker](https://pcpartpicker.com/list/2F67db)
 * MAG X870E TOMAHAWK WIFI motherboard 
     * M.2_1, a PCIe 5.0x4 lane, for SSD
     * 1x Realtek® 8126 5Gbps LAN controller
